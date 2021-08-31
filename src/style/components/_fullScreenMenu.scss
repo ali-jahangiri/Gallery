@@ -1,0 +1,30 @@
+@keyframes grows {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100vw;
+    }
+}
+
+@keyframes close {
+    to {
+        width: 0vw;
+    }
+}
+
+.menu {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 60px;
+    animation: grows 1s $cubic forwards alternate;
+
+    &--close {
+        animation: close .5s $cubic forwards alternate;
+    }
+}

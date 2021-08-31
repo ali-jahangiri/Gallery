@@ -1,0 +1,8 @@
+body {
+    font-family: 'Kaisei Tokumin', serif;
+    background-color: $navy;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

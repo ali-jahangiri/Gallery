@@ -1,0 +1,40 @@
+.galleryBox {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1rem;
+
+    .galleryBoxTitle {
+        flex: 1;
+        p {
+            &:first-child {
+                font-size: 2.5rem;
+                font-weight: bold;
+            }
+
+        }
+    }
+
+    .galleryBoxColumn {
+        margin: .5rem;
+        transition: .5s $cubic;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        &:last-child {
+            margin-top: 1rem;
+        }
+    }
+
+
+    .galleryBoxImageContainer {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            cursor: pointer;
+        }
+    }
+}
