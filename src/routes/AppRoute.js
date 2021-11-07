@@ -7,7 +7,7 @@ const AppRoute = () => (
     <BrowserRouter>
         <Header />
             <Switch>
-                <Route path="" exact component={Home} />
+                <Route path="/" exact component={Home} />
                 <Route path="/gallery" component={GalleryList} />
                 <Route path="/blog" component={Blog} />
                 <Route path="/contact" component={ContactUs} />

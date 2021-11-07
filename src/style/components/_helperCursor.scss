@@ -1,0 +1,10 @@
+.helperCursor {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: red;
+    position: fixed;
+    transform: translate(-50% , -50%);
+    transition: .02s;
+    z-index: -99999;
+}

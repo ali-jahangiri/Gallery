@@ -17,13 +17,31 @@
 
     .galleryBoxColumn {
         margin: .5rem;
-        transition: .5s $cubic;
+        transition: .5s $cubic , opacity 0s , transform 0.1s;
         background-repeat: no-repeat;
         background-size: cover;
+        position: relative;
         
+        &__cursor {
+            transition: opacity .3s;    
+            opacity: 0;
+            position: absolute;
+            border-radius: 50%;
+            background-color: red;
+            width: 3rem;
+            height: 3rem;
+        }
+
         &:last-child {
             margin-top: 1rem;
         }
+
+        &:hover {
+            .galleryBoxColumn__cursor {
+                opacity: 1;
+            }
+        }
+
     }
 
 

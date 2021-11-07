@@ -1,15 +1,15 @@
 @keyframes grows {
     from {
-        width: 0;
+        transform: translateX(100%);
     }
     to {
-        width: 100vw;
+        transform: translateX(0);
     }
 }
 
 @keyframes close {
     to {
-        width: 0vw;
+        transform: translateX(100%);
     }
 }
 
