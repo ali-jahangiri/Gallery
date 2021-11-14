@@ -1,3 +1,12 @@
+@keyframes initialAnimateForGalleryBox {
+    from {
+        height: 100%;
+    }
+    to {
+        height: 0%;
+    }
+}
+
 .galleryBox {
     display: flex;
     justify-content: space-between;
@@ -21,25 +30,17 @@
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-        
-        &__cursor {
-            transition: opacity .3s;    
-            opacity: 0;
+
+
+        &__InitialOverlayAnimator {
             position: absolute;
-            border-radius: 50%;
-            background-color: red;
-            width: 3rem;
-            height: 3rem;
-        }
-
-        &:last-child {
-            margin-top: 1rem;
-        }
-
-        &:hover {
-            .galleryBoxColumn__cursor {
-                opacity: 1;
-            }
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+            background : $navy;
+            animation: initialAnimateForGalleryBox 3.5s .3s forwards alternate cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
     }

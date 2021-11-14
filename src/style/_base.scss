@@ -6,3 +6,21 @@ body {
         display: none;
     }
 }
+
+
+
+.cursor {
+    border-radius: 50%;
+    background-color: #eee1ab;
+    position: fixed;
+    transition: transform .3s;
+    width: 3rem;
+    height: 3rem;
+    transform: scale(0);
+    cursor: pointer;
+    overflow: hidden;
+
+    &--active {
+        transform: scale(1);
+    }
+}

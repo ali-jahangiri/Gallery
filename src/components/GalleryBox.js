@@ -3,12 +3,11 @@ import { useRef, useState } from "react"
 import Portal from '../provider/Portal'
 import { selfClearTimeout } from "../utils"
 
-const ItemColumn = ({ src , bodyScrollPos , cursorPos }) => {
+const ItemColumn = ({ src , bodyScrollPos , setIsHovered , title }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [passedStyle, setPassedStyle] = useState({});
     const [currentScrolled, setCurrentScrolled] = useState(0);
-    const [test, setTest] = useState({ x : 0 , y : 0 });
-
+    const [showDetails, setShowDetails] = useState(false);
 
     const x = window.innerWidth / 2;
     const y = window.innerHeight / 2;
@@ -46,6 +45,9 @@ const ItemColumn = ({ src , bodyScrollPos , cursorPos }) => {
     const selectHandler = () => {
         if(!isOpen) {
             setIsOpen(prev => !prev);
+            selfClearTimeout(() => {
+                setShowDetails(true)
+            } , 1600)
             document.body.style.overflow = "hidden";
             selfClearTimeout(() => {
                 setPassedStyle({
@@ -55,12 +57,12 @@ const ItemColumn = ({ src , bodyScrollPos , cursorPos }) => {
                     height: window.innerHeight,
                     zIndex : 9999,
                     transform : "translate(-50%, -50%)",
-                    // filter : "blur(3px) brightness(0.7)"
                 })
             } , 600)
         }else {
             document.body.style.overflow = "auto";
             const details  = containerRef.current.getBoundingClientRect();
+            setShowDetails(false)
             setPassedStyle({
                     position: "absolute",
                     transition: ".6s",
@@ -76,23 +78,12 @@ const ItemColumn = ({ src , bodyScrollPos , cursorPos }) => {
         }
     }
 
-
-    const onMouseMove = e => {
-        const { x , y } = e.target.getClientRects()[0]
-        console.log(e);
-        const cursorX = Number(e.clientX)
-        const cursorY = Number(e.clientY)
-        setTest({x : cursorX - x , y : cursorY - y})
-    }
-
-
-
     return (
         <div 
-        ref={containerRef} 
-        onClick={selectHandler}
-        onWheel={scrollHandler}
-        onMouseMove={onMouseMove}
+            ref={containerRef} 
+            onClick={selectHandler}
+            onWheel={scrollHandler}
+            onMouseEnter={() => setIsHovered(true)}
         style={{ 
                 backgroundImage : `url(${src})` , 
                 width : 250 , 
@@ -101,17 +92,24 @@ const ItemColumn = ({ src , bodyScrollPos , cursorPos }) => {
                 transform : `translateY(${bodyScrollPos / 20}px)`
         }} 
         className={`galleryBoxColumn ${isOpen ? "galleryBoxColumn--open" : ""}`}>
-            <div style={{ left : test.x , top : test.y}} className="galleryBoxColumn__cursor"></div>
+            <div className="galleryBoxColumn__InitialOverlayAnimator" />
+            <Portal>
+                <div onMouseLeave={() => setIsHovered(false)} style={{ ...portalStyle , ...passedStyle , backgroundColor : "transparent" , cursor : "pointer"}} />
+            </Portal>
             {
                 !!isOpen && <Portal>
-                    <div className="galleryBoxPortal" style={{ ...portalStyle , ...passedStyle , backgroundImage :  `url(${src})`}}></div>
+                    <div className="galleryBoxPortal" style={{ ...portalStyle , ...passedStyle , backgroundImage :  `url(${src})`}}>
+                        <div className={`galleryBoxPortal__introDetails ${showDetails ? "galleryBoxPortal__introDetails--show" : ""}`}>
+                            <p>{title}</p>
+                        </div>
+                    </div>
                 </Portal>
             }
         </div>
     )
 }
 
-const GalleryBox = ({ imageList , title , desc , bodyScrollPos , cursorPos }) => {
+const GalleryBox = ({ imageList , title , desc , bodyScrollPos , setIsHovered , isSomeOneInHover }) => {
 
     return (
         <div className="galleryBox">
@@ -121,11 +119,11 @@ const GalleryBox = ({ imageList , title , desc , bodyScrollPos , cursorPos }) =>
             </div>
             <div className="galleryBoxImageContainer">
                 <div className="galleryBoxLeftSide">
-                    <ItemColumn cursorPos={cursorPos} bodyScrollPos={bodyScrollPos} src={imageList[0]} />
+                    <ItemColumn title={title} setIsHovered={setIsHovered} isSomeOneInHover={isSomeOneInHover} bodyScrollPos={bodyScrollPos} src={imageList[0]} />
                 </div>
                 <div className="galleryBoxRightSide">
-                    <ItemColumn cursorPos={cursorPos} bodyScrollPos={bodyScrollPos} src={imageList[1]} />
-                    <ItemColumn cursorPos={cursorPos} bodyScrollPos={bodyScrollPos} src={imageList[2]} />
+                    <ItemColumn title={title} setIsHovered={setIsHovered} isSomeOneInHover={isSomeOneInHover} bodyScrollPos={bodyScrollPos} src={imageList[1]} />
+                    <ItemColumn title={title} setIsHovered={setIsHovered} isSomeOneInHover={isSomeOneInHover} bodyScrollPos={bodyScrollPos} src={imageList[2]} />
                 </div>
             </div>
         </div>

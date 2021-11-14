@@ -1,6 +1,8 @@
-import { useLayoutEffect, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import GalleryBox from "../components/GalleryBox";
 import HelperCursor from "../components/HelperCursor";
+import Portal from "../provider/Portal";
+import { debounce } from "../utils";
 
 const Home = () => {
     const [currentBodyPos, setCurrentBodyPos] = useState(0)
@@ -21,8 +23,27 @@ const Home = () => {
         })
     } , [])
 
+    const cursor = useRef();
+
+    const mouseMoveHandler = e => {
+        // if(isInHoverOfSomeGalleryItem) {
+            cursor.current.style.left = `${e.clientX - 24}px`;
+            cursor.current.style.top = `${e.clientY - 24}px`;
+        // }
+    }
+
+    const [isInHoverOfSomeGalleryItem, setIsInHoverOfSomeGalleryItem] = useState(false);
+
+
     return (
-        <div className="container-fluid">
+        <div onMouseMove={mouseMoveHandler} className="container-fluid">
+            <Portal>
+                <div ref={cursor} className={`cursor ${isInHoverOfSomeGalleryItem ? "cursor--active" : ""}`}>
+                    {
+                        isInHoverOfSomeGalleryItem && <img src={'../static/icons8-double-left-arrows-96.png'} />
+                    }
+                </div>
+            </Portal>
             Atque id ea et dignissimos qui inventore possimus. Sit hic autem ab. Doloremque porro quia. Qui aliquam ut nisi ut perferendis vero. Adipisci est odio quis rerum.
             Atque id ea et dignissimos qui inventore possimus. Sit hic autem ab. Doloremque porro quia. Qui aliquam ut nisi ut perferendis vero. Adipisci est odio quis rerum.
             Atque id ea et dignissimos qui inventore possimus. Sit hic autem ab. Doloremque porro quia. Qui aliquam ut nisi ut perferendis vero. Adipisci est odio quis rerum.
@@ -37,7 +58,7 @@ Minus ut eum. Perferendis quam tenetur sint et accusamus est a culpa. Recusandae
  
 Sed omnis accusamus. Velit modi illo inventore. Qui perferendis autem eos magni repellendus et nihil molestiae et.
             {
-                model.map((el , i) => <GalleryBox cursorPos={currenetCusrsorPos} bodyScrollPos={currentBodyPos} {...el} key={i} />)
+                model.map((el , i) => <GalleryBox setIsHovered={setIsInHoverOfSomeGalleryItem} isSomeOneInHover={isInHoverOfSomeGalleryItem} cursorPos={currenetCusrsorPos} bodyScrollPos={currentBodyPos} {...el} key={i} />)
             }
             Iure eum qui id ad in ullam fuga tenetur veritatis. Nihil rerum praesentium et rerum nostrum. Aut et rerum unde vel odio occaecati quae eius enim.
  

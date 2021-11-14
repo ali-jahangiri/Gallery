@@ -1,0 +1,21 @@
+.galleryBoxPortal {
+    overflow: hidden;
+    &__introDetails {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 3rem;
+        font-weight: 900;
+        transition: .2s;
+        transform: translateY(100%);
+        p {
+            margin: 0;
+        }
+
+        &--show {
+            transition: .9s;
+            transform: translateY(0%);
+        }
+
+    }
+}
