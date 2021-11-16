@@ -5,6 +5,7 @@ import App from './App';
 import './style/bootstrap-grid.min.css';
 import "./style/style.scss";
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

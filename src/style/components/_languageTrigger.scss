@@ -5,38 +5,15 @@
     width: 10rem;
     transition: .3s;
     flex: .2;
-    
-    &:hover {
-        color: white;
-        overflow: visible;
 
-        .languageTriggerItem {
-            background-color: black;
-        }
-
-    }
-    .languageTriggerItem {
-        user-select: none;
-        transition: .3s;
-        width: 100%;
-        height: 1rem;
-        padding: 1rem 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    p {
         cursor: pointer;
-
-        &--deActive{
-            position: absolute;
-            top: 100%;
-            left: 0;
-            padding: 1.5rem;
-            height: 1rem;
-        }
+        display: inline;
+        user-select: none;
     }
-
 
     &--hide {
         flex: 0 !important;
+        opacity: 0;
     }
 }

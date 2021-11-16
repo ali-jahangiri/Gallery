@@ -1,13 +1,14 @@
 @import "./layout/";
 
 body {
-    font-family: 'Kaisei Tokumin', serif;
+    font-family: 'Kaisei Tokumin' , 'Vazir', serif;
     background-color: $navy;
 
     &::-webkit-scrollbar {
         display: none;
     }
 }
+
 
 
 
