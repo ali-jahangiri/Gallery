@@ -36,7 +36,7 @@ const Home = () => {
 
 
     return (
-        <div onMouseMove={mouseMoveHandler} className="container-fluid">
+        <div onMouseMove={mouseMoveHandler} className="container-fluid home">
             <Portal>
                 <div ref={cursor} className={`cursor ${isInHoverOfSomeGalleryItem ? "cursor--active" : ""}`}>
                     {
