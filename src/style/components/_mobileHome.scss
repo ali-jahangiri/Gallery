@@ -1,31 +1,87 @@
+@keyframes detailsInitialFadeIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 .mobileHome {
     max-height: 100vh;
+    height: 100vh;
     position: relative;
 
     &__post {
-        &__container {
-            img {
-                height: 100vh;
-                width: 100%;
-            }
-        }
 
+        &__image {
+            width: 100%;
+            height: 100vh;
+        }
     }
 
     &__details {
         position: absolute;
         bottom: 0;
         left: 0;
-        font-size: 2rem;
-        font-weight: 900;
         width: 100%;
         color: white;
         padding: 1rem;
-        height: 200px;
+        // height: 200px;
         background: linear-gradient(0deg, black, transparent);
+        transition: .3s;
+        opacity: 0;
+        transform: translateY(100%);
+        animation: detailsInitialFadeIn .9s .3s forwards alternate;
+        
+        &__innerContainer {
+            transition: .3s;
+            opacity: 1;
+        }
+
+        &__trigger {
+            width: 100%;
+            margin-top: 1rem;
+            padding: .5rem 2rem;
+            background-color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: .3s;
+
+            p {
+                font-size: 1.2rem !important;
+                padding: 0 !important;
+            }
+            svg {
+                width: 1.5rem;
+                height: 1.5rem;
+    
+            }
+
+
+            &--shrink {
+                background-color: red;
+            }
+
+        }
 
         p {
             margin: 0;
+            &:first-child {
+                font-weight: 900;
+                font-size: 2rem;
+                padding-bottom: .5rem;
+            }
+        }
+
+        &--hide {
+            .mobileHome__details__innerContainer {
+                transform: translateY(120%);
+                opacity: 0;
+            }
         }
     }
 }
