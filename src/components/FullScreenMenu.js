@@ -45,11 +45,15 @@ const FullScreenMenu = ({ isInClose }) => {
     
     return (
         <div className={`menu ${isInEn ? "menu--en" : ""} ${isInClose ? "menu--close" : ""}`}>
-            <p className="menu__title">{content[getContext.lang].title}</p>
-            <div className="menu__itemDirectory">
-                {
-                    content[getContext.lang].itemsList.map((el , i) => <MenuItem isInEn={isInEn} key={i} label={el} path={pathClone[i]} />)
-                }
+            <div className="menu__container">
+                <div className="menu__title">
+                    <p>{content[getContext.lang].title}</p>
+                </div>
+                <div className="menu__itemDirectory">
+                    {
+                        content[getContext.lang].itemsList.map((el , i) => <MenuItem isInEn={isInEn} key={i} label={el} path={pathClone[i]} />)
+                    }
+                </div>
             </div>
         </div>
     )

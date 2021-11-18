@@ -39,6 +39,18 @@
                 }
             }
         }
+
+        @media (max-width : 992px) {
+            p {
+                font-size: 2rem;
+                transform: translateX(-10px);
+                font-weight: 900;
+                &::after {
+                    width: 100%;
+                    opacity: 0.5;
+                }
+            }
+        }
     }
 
     &--en {
