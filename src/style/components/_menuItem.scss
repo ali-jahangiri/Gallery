@@ -1,0 +1,53 @@
+.menuItem {
+    text-align: right;
+    position: relative;
+    
+    button {
+        background-color: transparent;
+        border: none;
+        font-size: 3rem;
+        text-align: right;
+        margin-left: auto;
+
+        p {
+            margin: 0;
+            transition: .1s;
+            position: relative;
+
+            span {
+                position: relative;
+                z-index: 9999;
+                
+            }
+            
+            &::after {
+                content: "";
+                width: 0;
+                height: 1rem;
+                background-color: white;
+                position: absolute;
+                bottom: 5px;
+                right: 0;
+                transition: .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+            }
+
+            &:hover {
+                transform: translateX(-10px);
+                font-weight: 900;
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &--en {
+        bottom {
+            p {
+                &::after {
+                    background-color : red !important;
+                }
+            }
+        }
+    }
+}

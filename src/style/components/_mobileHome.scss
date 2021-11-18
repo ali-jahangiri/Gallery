@@ -28,7 +28,6 @@
         width: 100%;
         color: white;
         padding: 1rem;
-        // height: 200px;
         background: linear-gradient(0deg, black, transparent);
         transition: .3s;
         opacity: 0;
@@ -40,16 +39,31 @@
             opacity: 1;
         }
 
+        &__divider {
+            height: 2px;
+            background-color: white;
+            margin-bottom: 1rem;
+            margin-top: .5rem;
+            width: 0;
+            
+            &--getFull {
+                transition: .6s .2s;
+                width: 100%;
+            }
+        }
+
         &__trigger {
             width: 100%;
             margin-top: 1rem;
-            padding: .5rem 2rem;
             background-color: white;
             border: none;
             display: flex;
             align-items: center;
             justify-content: space-between;
             transition: .3s;
+            max-height: 0;
+            overflow: hidden;
+            padding: 0;
 
             p {
                 font-size: 1.2rem !important;
@@ -63,7 +77,8 @@
 
 
             &--shrink {
-                background-color: red;
+                max-height: 200px;
+                padding: .5rem 2rem;
             }
 
         }
@@ -73,7 +88,6 @@
             &:first-child {
                 font-weight: 900;
                 font-size: 2rem;
-                padding-bottom: .5rem;
             }
         }
 

@@ -30,6 +30,9 @@ const MobileHome = ({
 
     useEffect(function initialDetailsSetter () {
         setCurrentActiveDetails(model.find(item => item.imageList.find(img => img === flattedListModelImage[0])))
+        selfClearTimeout(() => {
+            setShowRedirectionTrigger(true);
+        } , 2500);
     } , []);
 
     const onSliderChangeHandler = currentIndex => {
@@ -43,7 +46,7 @@ const MobileHome = ({
             } , 500)
             selfClearTimeout(() => {
                 setShowRedirectionTrigger(true);
-            } , 750)
+            } , 900)
         }
     }
 
@@ -63,6 +66,7 @@ const MobileHome = ({
                 <div className={`mobileHome__details ${isInDetailsSwitching ? "mobileHome__details--hide" : ""}`}>
                     <div className="mobileHome__details__innerContainer">
                         <p>{currentActiveDetails?.title}</p>
+                        <div className={`mobileHome__details__divider ${showRedirectionTrigger ? "mobileHome__details__divider--getFull" : ""}`} />
                         <p>{currentActiveDetails?.desc}</p>
                         <button className={`mobileHome__details__trigger ${showRedirectionTrigger ? "mobileHome__details__trigger--shrink" : ""}`}>
                             <p>Show more </p>

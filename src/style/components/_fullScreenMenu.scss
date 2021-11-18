@@ -24,6 +24,22 @@
     padding-top: 60px;
     animation: grows 1s $cubic forwards alternate;
     z-index: 99;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 0 6rem;
+    justify-content: center;
+
+    &__title {
+        font-size: 2.6rem;
+        margin: 0;
+        font-weight: 900;
+    }
+
+    &--en {
+        align-items: flex-start;
+    }
+
     &--close {
         animation: close .5s $cubic forwards alternate;
     }
