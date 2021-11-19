@@ -1,10 +1,6 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import DesktopHome from "../components/DesktopHome";
-import GalleryBox from "../components/GalleryBox";
-import HelperCursor from "../components/HelperCursor";
 import MobileHome from "../components/MobileHome";
-import Portal from "../provider/Portal";
-import { debounce } from "../utils";
 
 const model = [
     {
@@ -18,7 +14,7 @@ const model = [
         title : "VIoew loreOthr test",
         shortDescription : "dolore-corrupti-sint",
         desc : "Vero quae placeat omnis sed. Impedit amet temporibus aut fugiat et. Illo voluptatem atque cum nam. Provident soluta ipsa enim inventore occaecati placeat quia. Ipsum recusandae dolore fugit eos aut. Et in sed enim iusto dicta assumenda.",
-        imageList : ['https://images.unsplash.com/photo-1637152740336-da2baefdbf2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1370&q=80' , "https://images.unsplash.com/photo-1636926587706-6ef4bf952e3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1412&q=80" , "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1490&q=80"],
+        imageList : ['https://images.unsplash.com/photo-1637152740336-da2baefdbf2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1370&q=80' , "https://images.unsplash.com/photo-1636926587706-6ef4bf952e3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1412&q=80" , "https://images.unsplash.com/photo-1598476217250-9c08fb122fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1527&q=80"],
         id : Math.random()
     },
 ]
@@ -26,9 +22,9 @@ const model = [
 const Home = () => {
     const [currentBodyPos, setCurrentBodyPos] = useState(0);
     const [isInMobile, setIsInMobile] = useState(false);
-    const [currenetCusrsorPos, setCurrentCursorPos] = useState({ x : 0 , y : 0 })
+    const [isInHoverOfSomeGalleryItem, setIsInHoverOfSomeGalleryItem] = useState(false);
 
-    
+    const cursor = useRef();
 
     useLayoutEffect(() => {
         document.addEventListener("scroll" , () => {
@@ -37,7 +33,6 @@ const Home = () => {
         })
     } , [])
 
-    const cursor = useRef();
 
     const mouseMoveHandler = e => {
         if(!isInMobile) {
@@ -46,20 +41,23 @@ const Home = () => {
         }
     }
 
-    const [isInHoverOfSomeGalleryItem, setIsInHoverOfSomeGalleryItem] = useState(false);
-
-
     useEffect(function detectMobileResolution() {
         const currentBodyWidth = window.innerWidth;
-        if(currentBodyWidth <= 552) {
-            setIsInMobile(true)
-        }
+        if(currentBodyWidth <= 552) setIsInMobile(true);
     } , []);
 
     return (
         <div onMouseMove={mouseMoveHandler} className={`container-fluid home ${isInMobile ? "home--mobile" : ""}`}>
             {
-                isInMobile ? <MobileHome model={model} /> : <DesktopHome cursorRef={cursor} currentBodyPos={currentBodyPos} setIsInHoverOfSomeGalleryItem={setIsInHoverOfSomeGalleryItem} model={model} isInHoverOfSomeGalleryItem={isInHoverOfSomeGalleryItem} currenetCusrsorPos={currenetCusrsorPos} />
+                isInMobile 
+                    ? <MobileHome model={model} /> 
+                    : <DesktopHome 
+                        cursorRef={cursor} 
+                        currentBodyPos={currentBodyPos} 
+                        setIsInHoverOfSomeGalleryItem={setIsInHoverOfSomeGalleryItem} 
+                        model={model} 
+                        isInHoverOfSomeGalleryItem={isInHoverOfSomeGalleryItem} 
+                        />
             }  
         </div>
     )

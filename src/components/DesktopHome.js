@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Portal  from "../provider/Portal"
 import GalleryBox from './GalleryBox';
 
 const UpIcon = () => <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M6,6.21a1,1,0,0,0,1.41,0L11,2.58V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V2.59l3.62,3.62a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.41L14.13.88a3,3,0,0,0-4.24,0L6,4.8A1,1,0,0,0,6,6.21Z"/></svg>
 
-const DesktopHome = ({ cursorRef , isInHoverOfSomeGalleryItem , setIsInHoverOfSomeGalleryItem , model , currenetCusrsorPos , currentBodyPos }) => {
+const DesktopHome = ({ cursorRef , isInHoverOfSomeGalleryItem , setIsInHoverOfSomeGalleryItem , model , currentBodyPos }) => {
+    const [oneItemSelected, setOneItemSelected] = useState(false)
+
     return (
         <React.Fragment>
             <Portal>
-                <div ref={cursorRef} className={`cursor ${isInHoverOfSomeGalleryItem ? "cursor--active" : ""}`}>
-                    {
-                        isInHoverOfSomeGalleryItem && <UpIcon />
-                    }
+                <div ref={cursorRef} style={{ zIndex : oneItemSelected ? 99999 : 0 }} className={`cursor ${isInHoverOfSomeGalleryItem ? "cursor--active" : ""} ${oneItemSelected ? "cursor--selected" : ""}`}>
+                    <UpIcon />
                 </div>
             </Portal>
             Atque id ea et dignissimos qui inventore possimus. Sit hic autem ab. Doloremque porro quia. Qui aliquam ut nisi ut perferendis vero. Adipisci est odio quis rerum.
@@ -28,7 +28,13 @@ Minus ut eum. Perferendis quam tenetur sint et accusamus est a culpa. Recusandae
  
 Sed omnis accusamus. Velit modi illo inventore. Qui perferendis autem eos magni repellendus et nihil molestiae et.
             {
-                model.map((el , i) => <GalleryBox setIsHovered={setIsInHoverOfSomeGalleryItem} isSomeOneInHover={isInHoverOfSomeGalleryItem} cursorPos={currenetCusrsorPos} bodyScrollPos={currentBodyPos} {...el} key={i} />)
+                model.map((el , i) => <GalleryBox
+                                            setOneItemSelected={setOneItemSelected}
+                                            setIsHovered={setIsInHoverOfSomeGalleryItem} 
+                                            isSomeOneInHover={isInHoverOfSomeGalleryItem} 
+                                            bodyScrollPos={currentBodyPos} 
+                                            {...el} 
+                                            key={i} />)
             }
             Iure eum qui id ad in ullam fuga tenetur veritatis. Nihil rerum praesentium et rerum nostrum. Aut et rerum unde vel odio occaecati quae eius enim.
  

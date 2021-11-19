@@ -4,10 +4,48 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        font-size: 3rem;
         font-weight: 900;
         transition: .2s;
         transform: translateY(100%);
+        padding: 1rem;
+        background-color: white;
+        
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+
+            div {
+                padding: .5rem;
+                cursor: pointer;
+                transition: .3s;
+                
+                
+                svg {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    transition: .3s;
+                }
+                
+                
+                &:hover {
+                    background-color: rgb(236, 236, 236);
+                    svg {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+
+        &__title {
+            font-size: 3rem;
+        }
+
+        &__desc {
+            
+        }
+
         p {
             margin: 0;
         }
