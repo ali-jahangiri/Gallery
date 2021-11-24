@@ -1,0 +1,39 @@
+@keyframes showLoadingText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes getLoadingHide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.homeLoading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: $beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 900;
+    p {
+        animation: showLoadingText 1s forwards alternate;
+    }
+
+    &--getHide {
+        animation: getLoadingHide .3s .9s forwards alternate;
+    }
+}

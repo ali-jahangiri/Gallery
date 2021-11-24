@@ -1,6 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import DesktopHome from "../components/DesktopHome";
 import MobileHome from "../components/MobileHome";
+import HomeLoadingScreen from "../components/HomeLoadingScreen";
+import useRequest from "../utils/useRequest";
 
 const model = [
     {
@@ -23,6 +25,10 @@ const Home = () => {
     const [currentBodyPos, setCurrentBodyPos] = useState(0);
     const [isInMobile, setIsInMobile] = useState(false);
     const [isInHoverOfSomeGalleryItem, setIsInHoverOfSomeGalleryItem] = useState(false);
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    
+    const reqHandler = useRequest()
 
     const cursor = useRef();
 
@@ -46,20 +52,34 @@ const Home = () => {
         if(currentBodyWidth <= 552) setIsInMobile(true);
     } , []);
 
+    useEffect(() => {
+        reqHandler('home/index')
+            .then(data => {
+                setData(data);
+                setLoading(false);
+            })
+    } , []);
+
     return (
-        <div onMouseMove={mouseMoveHandler} className={`container-fluid home ${isInMobile ? "home--mobile" : ""}`}>
+        <>
+            <HomeLoadingScreen loadingFinished={!loading} />
             {
-                isInMobile 
-                    ? <MobileHome model={model} /> 
-                    : <DesktopHome 
-                        cursorRef={cursor} 
-                        currentBodyPos={currentBodyPos} 
-                        setIsInHoverOfSomeGalleryItem={setIsInHoverOfSomeGalleryItem} 
-                        model={model} 
-                        isInHoverOfSomeGalleryItem={isInHoverOfSomeGalleryItem} 
-                        />
-            }  
-        </div>
+                !loading && <div onMouseMove={mouseMoveHandler} className={`container-fluid home ${isInMobile ? "home--mobile" : ""}`}>
+                    {
+                        isInMobile 
+                            ? <MobileHome model={model} /> 
+                            : <DesktopHome 
+                                cursorRef={cursor} 
+                                currentBodyPos={currentBodyPos} 
+                                setIsInHoverOfSomeGalleryItem={setIsInHoverOfSomeGalleryItem} 
+                                model={model} 
+                                isInHoverOfSomeGalleryItem={isInHoverOfSomeGalleryItem} 
+                                />
+                    }  
+                </div>
+            }
+            
+        </>
     )
 }
 
