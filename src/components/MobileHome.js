@@ -26,17 +26,17 @@ const MobileHome = ({
     }
 
 
-    const flattedListModelImage = model.map(el => el.imageList).flat();
+    const flattedListModelImage = model.map(el => el.ImageList).flat();
 
     useEffect(function initialDetailsSetter () {
-        setCurrentActiveDetails(model.find(item => item.imageList.find(img => img === flattedListModelImage[0])))
+        setCurrentActiveDetails(model.find(item => item.ImageList.find(img => img === flattedListModelImage[0])))
         selfClearTimeout(() => {
             setShowRedirectionTrigger(true);
         } , 2500);
     } , []);
 
     const onSliderChangeHandler = currentIndex => {
-        const currentActiveItem = model.find(item => item.imageList.find(img => img === flattedListModelImage[currentIndex]));
+        const currentActiveItem = model.find(item => item.ImageList.find(img => img === flattedListModelImage[currentIndex]));
         if(currentActiveItem.id !== currentActiveDetails.id) {
             setIsInDetailsSwitching(true);
             setShowRedirectionTrigger(false);

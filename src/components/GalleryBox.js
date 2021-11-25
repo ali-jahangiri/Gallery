@@ -5,6 +5,7 @@ import { selfClearTimeout } from "../utils";
 const CloseIcon = () => <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M18,6h0a1,1,0,0,0-1.414,0L12,10.586,7.414,6A1,1,0,0,0,6,6H6A1,1,0,0,0,6,7.414L10.586,12,6,16.586A1,1,0,0,0,6,18H6a1,1,0,0,0,1.414,0L12,13.414,16.586,18A1,1,0,0,0,18,18h0a1,1,0,0,0,0-1.414L13.414,12,18,7.414A1,1,0,0,0,18,6Z"/></svg>
 
 const ItemColumn = ({ src , bodyScrollPos , setIsHovered , title , setOneItemSelected , desc , restModelImgs }) => {
+    console.log(src , "lo0rem");
     const [isOpen, setIsOpen] = useState(false);
     const [passedStyle, setPassedStyle] = useState({});
     const [currentScrolled, setCurrentScrolled] = useState(0);
@@ -221,32 +222,32 @@ const ItemColumn = ({ src , bodyScrollPos , setIsHovered , title , setOneItemSel
 }
 
 const GalleryBox = ({ 
-    imageList = [], 
-    title ,
-    desc , 
+    ImageList = [], 
+    EnTitle ,
+    EnDescription , 
     bodyScrollPos , 
     setIsHovered , 
     isSomeOneInHover ,
     setOneItemSelected,
 }) => {
-
+    
     const ItemWrapper = index => (
         <ItemColumn 
-            restModelImgs={imageList.filter((_ , i) => i !== index)} 
-            desc={desc} 
+            restModelImgs={ImageList.filter((_ , i) => i !== index)} 
+            desc={EnDescription} 
             setOneItemSelected={setOneItemSelected} 
-            title={title} 
+            title={EnTitle} 
             setIsHovered={setIsHovered} 
             isSomeOneInHover={isSomeOneInHover} 
             bodyScrollPos={bodyScrollPos} 
-            src={imageList[index]} />
+            src={ImageList[index]} />
     )
 
     return (
         <div className="galleryBox">
             <div className="galleryBoxTitle">
-                <p>{title}</p>
-                <p>{desc}</p>
+                <p>{EnTitle}</p>
+                <p>{EnDescription}</p>
             </div>
             <div className="galleryBoxImageContainer">
                 <div className="galleryBoxLeftSide">

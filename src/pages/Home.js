@@ -59,7 +59,7 @@ const Home = () => {
                 setLoading(false);
             })
     } , []);
-
+    
     return (
         <>
             <HomeLoadingScreen loadingFinished={!loading} />
@@ -67,14 +67,14 @@ const Home = () => {
                 !loading && <div onMouseMove={mouseMoveHandler} className={`container-fluid home ${isInMobile ? "home--mobile" : ""}`}>
                     {
                         isInMobile 
-                            ? <MobileHome model={model} /> 
+                            ? <MobileHome model={data} /> 
                             : <DesktopHome 
                                 cursorRef={cursor} 
                                 currentBodyPos={currentBodyPos} 
                                 setIsInHoverOfSomeGalleryItem={setIsInHoverOfSomeGalleryItem} 
-                                model={model} 
+                                model={data} 
                                 isInHoverOfSomeGalleryItem={isInHoverOfSomeGalleryItem} 
-                                />
+                            />
                     }  
                 </div>
             }
