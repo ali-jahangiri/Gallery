@@ -1,6 +1,8 @@
 .galleryBoxPortal {
     overflow: hidden;
+    
     &__introDetails {
+        width: 100%;
         position: absolute;
         bottom: 0;
         left: 0;

@@ -39,6 +39,7 @@ const Home = () => {
     useEffect(() => {
         reqHandler('home/index')
             .then(data => {
+                console.log(data);
                 setData(data);
                 setLoading(false);
             })
