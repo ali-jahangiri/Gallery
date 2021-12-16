@@ -1,20 +1,12 @@
-import { useHistory } from "react-router";
-
-const MenuItem = ({ label , path , isInEn }) => {
-    const history = useHistory();
-
-    const redirectHandler = () => history.push(`/${path}`)
-
-    return (
-        <div className={`menuItem ${isInEn ? "menuItem--en" : ""}`}>
-            <button onClick={redirectHandler}>
-                <p>
-                    <span>{label}</span>
-                </p>
-            </button>
-        </div>
-    )
-}
+const MenuItem = ({ label , path , isInEn , redirectHandler }) => (
+    <div className={`menuItem ${isInEn ? "menuItem--en" : ""}`}>
+        <button onClick={() => redirectHandler(path)}>
+            <p>
+                <span>{label}</span>
+            </p>
+        </button>
+    </div>
+)
 
 
 export default MenuItem;

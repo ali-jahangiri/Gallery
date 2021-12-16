@@ -1,4 +1,6 @@
+import { useHistory } from "react-router";
 import useAppContext from "../hooks/useAppContext";
+import { selfClearTimeout } from "../utils";
 import MenuItem from "./MenuItem";
 
 const content = {
@@ -38,11 +40,21 @@ const pathClone = [
     "contact",
 ]
 
-const FullScreenMenu = ({ isInClose }) => {
+const FullScreenMenu = ({ isInClose , setMenuOpen , setIsInClosing }) => {
+    const history = useHistory();
     const { getContext } = useAppContext()
     
     const isInEn = getContext.lang === "en";
     
+
+    const redirectHandler = (path) => {
+        history.push(`/${path}`);
+        setIsInClosing(true);
+        selfClearTimeout(() => {
+            setMenuOpen(false)
+        } , 500)
+    };
+
     return (
         <div className={`menu ${isInEn ? "menu--en" : ""} ${isInClose ? "menu--close" : ""}`}>
             <div className="menu__container">
@@ -51,7 +63,7 @@ const FullScreenMenu = ({ isInClose }) => {
                 </div>
                 <div className="menu__itemDirectory">
                     {
-                        content[getContext.lang].itemsList.map((el , i) => <MenuItem isInEn={isInEn} key={i} label={el} path={pathClone[i]} />)
+                        content[getContext.lang].itemsList.map((el , i) => <MenuItem isInEn={isInEn} key={i} label={el} redirectHandler={redirectHandler} path={pathClone[i]} />)
                     }
                 </div>
             </div>

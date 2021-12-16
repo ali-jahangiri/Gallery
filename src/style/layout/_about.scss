@@ -1,0 +1,13 @@
+.about {
+    &__intro {
+        width: 100%;
+        
+        div {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 30rem;
+        }
+    }
+}

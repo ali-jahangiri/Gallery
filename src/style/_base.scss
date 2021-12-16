@@ -2,49 +2,5 @@
 
 body {
     font-family: 'Kaisei Tokumin' , 'Vazir', serif;
-    background-color: $navy;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
 }
 
-.previousItem {
-    filter: brightness(.3) blur(5px);
-    transform: translateX(-30%);
-}
-
-
-.cursor {
-    border-radius: 50%;
-    background-color: #eee1ab;
-    position: fixed;
-    transition: transform .3s;
-    width: 3rem;
-    height: 3rem;
-    transform: scale(0);
-    cursor: pointer;
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
-    svg {
-        width: 1rem;
-        height: 1rem;
-        transform: rotate(45deg);
-        transition: .3s 1.5s;
-    }
-
-    &--selected {
-        svg {
-            transform: rotate(90deg);
-        }
-    }
-
-    &--active {
-        transform: scale(1);
-    }
-}
