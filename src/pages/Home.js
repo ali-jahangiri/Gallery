@@ -1,5 +1,8 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
+import HomeLoadingScreen from "../components/HomeLoadingScreen";
+import reqUrl from "../utils/reqUrl";
+import useRequest from "../utils/useRequest";
 
 const RightIcon = () => <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"><path d="M7,24a1,1,0,0,1-.707-1.707l8.172-8.172a3,3,0,0,0,0-4.242L6.293,1.707A1,1,0,0,1,7.707.293l8.172,8.172a5.005,5.005,0,0,1,0,7.07L7.707,23.707A1,1,0,0,1,7,24Z"/></svg>
 const LeftIcon = () => <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"><path d="M17.172,24a1,1,0,0,1-.707-.293L8.293,15.535a5,5,0,0,1,0-7.07L16.465.293a1,1,0,0,1,1.414,1.414L9.707,9.879a3,3,0,0,0,0,4.242l8.172,8.172A1,1,0,0,1,17.172,24Z"/></svg>
@@ -16,7 +19,9 @@ const imageList = [
 const Home = () => {
     const sliderRef = useRef();
     const [loading, setLoading] = useState(true);
-    const [homeData, setHomeData] = useState({});
+    const [homeData, setHomeData] = useState({ post : [] , slider : [{ Id : "" , Title : "" , ImageList : [] , ShortDescription : "" }] });
+
+    const fetcher = useRequest()
 
     const sliderConfig = {
         dots: false,
@@ -32,33 +37,47 @@ const Home = () => {
     const nextSlidHandler = () => sliderRef.current.slickNext()
     const prevSlidHandler = () => sliderRef.current.slickPrev()
 
-    return (
-        <div className="home">
-            <div className="home__sliderContainer">
-                <Slider {...sliderConfig} ref={sliderRef} className="home__slider">
-                    {
-                        imageList.map((el , i) => (
-                            <div key={i}>
-                                <div style={{ backgroundImage : `url(${el})` }} className="home__slider__item">
-                                </div>
-                            </div>
-                        ))
-                    }
-                </Slider>
-                <div className="home__slider__controller">
-                    <div onClick={prevSlidHandler}>
-                        <LeftIcon />
-                    </div>
-                    <div onClick={nextSlidHandler}>
-                        <RightIcon />
-                    </div>
-                </div>
-                <div className="home__slider__otherGoddamnContainerForNoPurpose">
 
+    useEffect(function getHomeData() {
+        fetcher(reqUrl.getSlider)
+            .then(slider => {
+                fetcher(reqUrl.getPost)
+                    .then(post => {
+                        setHomeData({ post , slider });
+                        setLoading(false);
+                    })
+            })
+    } , []);
+    
+
+    return <>
+            <HomeLoadingScreen loadingFinished={!loading} />
+            <div className="home">
+                <div className="home__sliderContainer">
+                    <Slider {...sliderConfig} ref={sliderRef} className="home__slider">
+                        {
+                            homeData.slider.map(slide => slide.ImageList).flat().map((el , i) => (
+                                <div key={i}>
+                                    <div style={{ backgroundImage : `url(${el})` }} className="home__slider__item">
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </Slider>
+                    <div className="home__slider__controller">
+                        <div onClick={prevSlidHandler}>
+                            <LeftIcon />
+                        </div>
+                        <div onClick={nextSlidHandler}>
+                            <RightIcon />
+                        </div>
+                    </div>
+                    <div className="home__slider__otherGoddamnContainerForNoPurpose">
+                        
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+    </>
 }
 
 

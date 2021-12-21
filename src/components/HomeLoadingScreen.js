@@ -6,7 +6,7 @@ const HomeLoadingScreen = ({ loadingFinished }) => {
 
     useEffect(() => {
         if(loadingFinished) {
-            selfClearTimeout(() => setShouldGteDestroyed(true) , 1300)
+            selfClearTimeout(() => setShouldGteDestroyed(true) , 1800)
         }
     } , [loadingFinished])
 

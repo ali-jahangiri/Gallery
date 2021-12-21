@@ -3,8 +3,8 @@ import useAppContext from "../hooks/useAppContext";
 
 const useRequest = () => {
     const { getContext : { lang } } = useAppContext();
-    return path => {
-        return axios.post(`https://fahimehheydari.ir/${path}`).then(res => res.data.Data)
+    return (path = "" , option = {}) => {
+        return axios.post(`https://fahimehheydari.ir/home/${path}`).then(res => res.data)
     }
 }
 

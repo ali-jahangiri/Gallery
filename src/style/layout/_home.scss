@@ -25,14 +25,17 @@
             
             div {
                 background-color: $lightblue;
-                padding: 1rem;
-                margin: 0 1rem;
+                padding: .5rem;
+                margin: 0 .5rem;
                 cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
                 
                 svg {
-                    width: 2rem;
-                    height: 2rem;
+                    width: 1.5rem;
+                    height: 1.5rem;
                 }
 
             }

@@ -1,0 +1,51 @@
+%textInput {
+    border-radius: 3px;
+    outline: none;
+    padding: 0 .5rem;
+    border: 1px solid lightgrey;
+    width: 100%;
+}
+
+.customInput {
+    margin: 1rem 0;
+    
+    * {
+        transition: .3s;
+    }
+
+    label {
+        margin: .8rem 0;
+    }
+    
+    textarea {
+        @extend %textInput;
+        min-height: 5.5rem;
+        max-height: 10rem;
+        padding-top: .5rem;
+    }
+
+    input {
+        height: 2.5rem;
+        @extend %textInput;
+
+    }
+
+    &--fa {
+        text-align: right;
+
+        textarea,input {
+            direction: rtl;
+        }
+    }
+
+
+    &--error {
+        label {
+            color: rgba(255, 0, 0, 0.836);
+        }
+        input , textarea {
+            border-color: rgba(255, 0, 0, 0.322);
+
+        }
+    }
+}
