@@ -1,3 +1,7 @@
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+
+dayjs.extend(jalaliday)
 const selfClearTimeout = (callback , timeout) => {
     const timer = setTimeout(() => {
         callback()
@@ -21,9 +25,12 @@ function debounce(func, wait, immediate) {
 };
 
 
-var idGenerator = function () {
+function idGenerator () {
 	return '_' + Math.random().toString(36).substr(2, 9);
 };
+
+
+export const _date = (targetDate) => dayjs(targetDate).calendar("jalali").locale('fa')
 
 export {
     selfClearTimeout,
