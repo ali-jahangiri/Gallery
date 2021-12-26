@@ -58,14 +58,7 @@ const Home = () => {
                             homeData.slider.map(slide => slide.ImageList).flat().map((el , i) => (
                                 <div key={i}>
                                     <div style={{ backgroundImage : `url(${el})` }} className="home__slider__item">
-                                        <div className="home__slider__item__innerContainer">
-                                            <div className="home__slider__item__title">
-                                                <p>{homeData.slider.find(item => item.ImageList.includes(el)).Title}</p>
-                                            </div>
-                                            <div className="home__slider__item__desc">
-                                                <p>{homeData.slider.find(item => item.ImageList.includes(el)).ShortDescription}</p>
-                                            </div>
-                                        </div>
+                                        <div className="home__slider__item__innerContainer" />
                                     </div>
                                 </div>
                             ))

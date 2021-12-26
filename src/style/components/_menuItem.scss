@@ -28,4 +28,12 @@
         }
     }
 
+
+    @media (max-width : 576px) {
+        text-align: center;
+        p {
+            font-size: 1.7rem;
+        }
+    }
+
 }

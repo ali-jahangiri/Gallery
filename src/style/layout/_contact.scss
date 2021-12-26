@@ -28,7 +28,7 @@
     }
 
 
-    &__successfulSubmitAlert {
+    &__afterSubmitAlert {
         position: fixed;
         left: 0;
         top: 0;
@@ -51,6 +51,11 @@
             padding: .5rem 1.5rem;
             background-color: #A3DA8D;
             border-radius: 5px;
+        }
+
+
+        &__header {
+            margin: 0 5rem;
         }
     }
 

@@ -45,7 +45,7 @@
     height: 100vh;
     overflow: hidden;
     position: fixed;
-    background-color: #1e1e1f;
+    background-color: $navy;
     color: white;
     right: 0;
     top: 0;
@@ -121,9 +121,10 @@
 
     @media (max-width : 992px) {
         .menu {
-
             &__container {
+                padding: 0;
                 flex-direction: column;
+                align-items: center;
                 height: 80%;
             }
 
