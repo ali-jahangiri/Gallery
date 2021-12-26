@@ -45,10 +45,6 @@ const Home = () => {
     } , []);
 
 
-
-    console.log(homeData);
-    
-
     return <>
             <HomeLoadingScreen loadingFinished={!loading} />
             <div className="home">

@@ -45,7 +45,7 @@
     height: 100vh;
     overflow: hidden;
     position: fixed;
-    background-color: $navy;
+    background-color: $menuBackgroundBgColor;
     color: white;
     right: 0;
     top: 0;
@@ -61,6 +61,8 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        color: $beige;
+
 
         p {
             margin: 0 !important;

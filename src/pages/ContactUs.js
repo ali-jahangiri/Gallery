@@ -71,8 +71,9 @@ const ContactUs = () => {
         
         if(errorList.length) setError(errorList);
         else {
-            fetcher(`https://www.fahimehheydari.ir/home/GetContactForm?contactUsForm=${JSON.stringify(formData)}`)
-                .then(_ => {
+            console.log(formData , "lorem");
+            fetcher(reqUrl.contact + `?contactUsForm=${JSON.stringify(formData)}`)
+                .then(() => {
                     setWasSuccessfulSubmission(true);
                     setFormData({});
                     setError([]);
@@ -81,6 +82,8 @@ const ContactUs = () => {
 
     }
 
+
+    const clearFormAfterSubmitHandler = () => setFormData({});
 
     return (
         <div className="contact">
@@ -127,7 +130,10 @@ const ContactUs = () => {
                         <p>{lang === "fa" ? "فرم با موفقیت ارسال شد" : "Form submitted successfully!"}</p>
                     </div>
                     <div>
-                        <button onClick={() => setWasSuccessfulSubmission(false)}>{lang === "fa" ? "تایید" : "Close"}</button>
+                        <button onClick={() => {
+                            setWasSuccessfulSubmission(false);
+                            clearFormAfterSubmitHandler()
+                        }}>{lang === "fa" ? "تایید" : "Close"}</button>
                     </div>
                 </div>
             }
@@ -137,7 +143,10 @@ const ContactUs = () => {
                         <p>{lang === "fa" ? "مشکلی در ارسال فرم رخ داده است . مجددا تلاش نمایید" : "We face to some problem in submition process , Please try again!!"}</p>
                     </div>
                     <div>
-                        <button style={{ backgroundColor : "#FF5959" }} onClick={() => setWasSuccessfulSubmission(false)}>{lang === "fa" ? "بستن" : "Close"}</button>
+                        <button style={{ backgroundColor : "#FF5959" }} onClick={() => {
+                            setWasUnSuccessfulSubmission(false);
+                            clearFormAfterSubmitHandler()
+                        }}>{lang === "fa" ? "بستن" : "Close"}</button>
                     </div>
                 </div>
             }
