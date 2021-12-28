@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
+
 import HomeLoadingScreen from "../components/HomeLoadingScreen";
 import HomePostBlock from "../components/HomePostBlock";
 import reqUrl from "../utils/reqUrl";
