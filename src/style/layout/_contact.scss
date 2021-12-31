@@ -59,6 +59,18 @@
         }
     }
 
+
+    &__more {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        & > div {
+            width: 50%;
+        }
+    }
+
     &__socialMedia {
         display: flex;
         align-items: center;
@@ -69,12 +81,19 @@
             align-items: center;
             margin-left: 1rem;
 
-            div {
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 2rem;
                 height: 2rem;
                 border-color: lightgrey;
                 cursor: pointer;
                 margin: 0 .5rem;
+
+                svg {
+                    fill: $navy;
+                }
             }
         }
     }
@@ -93,9 +112,20 @@
             &__images {
                 display: none;
             }
+
             &__form {
                 width: 100%;
                 padding: 0;
+            }
+
+            &__more {
+                width: 97%;
+                flex-direction: column;
+                align-content: flex-start;
+
+                & > div {
+                    width: 100%;
+                }
             }
         }
     }

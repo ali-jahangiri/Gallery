@@ -1,11 +1,14 @@
 import { useState } from "react";
+import AdditionalContact from "../components/AditionalContact";
 import Input from "../components/Input";
 import useAppContext from "../hooks/useAppContext";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
+import Pic from "../static/Picture10.jpg"
+
 const Instagram = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-const Telegram =  () => <svg style={{ fillRule : "evenodd" , clipRule: "evenodd" , strokeLinejoin:"round" , strokeMiterlimit :1.41421 }} xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" version="1.1" ><path id="telegram-1" d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/></svg>
+const Facebook =  () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.014467 17.065322 19.313017 13.21875 19.898438 L 13.21875 14.384766 L 15.546875 14.384766 L 15.912109 12.019531 L 13.21875 12.019531 L 13.21875 10.726562 C 13.21875 9.7435625 13.538984 8.8710938 14.458984 8.8710938 L 15.935547 8.8710938 L 15.935547 6.8066406 C 15.675547 6.7716406 15.126844 6.6953125 14.089844 6.6953125 C 11.923844 6.6953125 10.654297 7.8393125 10.654297 10.445312 L 10.654297 12.019531 L 8.4277344 12.019531 L 8.4277344 14.384766 L 10.654297 14.384766 L 10.654297 19.878906 C 6.8702905 19.240845 4 15.970237 4 12 C 4 7.5698774 7.5698774 4 12 4 z"/></svg>
 
 
 const FORM_INPUT_LABEL = {
@@ -87,17 +90,6 @@ const ContactUs = () => {
 
     return (
         <div className="contact">
-            <div className="contact__socialMedia">
-                <p>Follow Combo on Social Media</p>
-                <div>
-                    <div>
-                        <Telegram />
-                    </div>
-                    <div>
-                        <Instagram />
-                    </div>
-                </div>
-            </div>
             <div className="contact__container">
                 <div className="contact__form">
                     <div className="contact__form__container">
@@ -121,8 +113,22 @@ const ContactUs = () => {
                         </button>
                     </div>
                 </div>
-                <div style={{ background : `url(https://images.unsplash.com/photo-1639694324137-f409cf5666f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80)` }} className="contact__images">
+                <div data-image={Pic} style={{ background :  `url(${Pic})` }} className="contact__images">
                 </div>
+            </div>
+            <div className="contact__more">
+                <div className="contact__socialMedia">
+                    <p>Follow Combo on Social Media</p>
+                    <div>
+                        <a href="https://www.facebook.com/fahimeh.heydari.5">
+                            <Facebook />
+                        </a>
+                        <a href="https://www.instagram.com/fahimeh.heydarii">
+                            <Instagram />
+                        </a>
+                    </div>
+                </div>
+                <AdditionalContact />
             </div>
             {
                 wasSuccessfulSubmission && <div className="contact__afterSubmitAlert"> 

@@ -1,0 +1,30 @@
+.additionalContact {
+    display: flex;
+    margin: 2rem auto;
+    width: 95%;
+
+    div {
+        margin: 0 1rem;
+        position: relative;
+        p {
+            margin: 0;
+            margin-left: 1.6rem;
+            &::after {
+                content: "";
+                width: 1rem;
+                height: 1rem;
+                border-radius: $radius;
+                background-color: $navy;
+                position: absolute;
+                left: 0;
+                top: 10%;
+            }
+
+        }
+
+        a {
+            text-decoration: none;
+            color: grey;
+        }
+    }
+}
