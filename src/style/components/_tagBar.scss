@@ -1,0 +1,13 @@
+.tagbar {
+    display: flex;
+    border: 2px solid lighten($color: $navy, $amount: 25);
+    width: fit-content;
+
+
+    div {
+        margin: 0 .5rem;
+        color: $navy;
+        font-size: .8rem;
+        font-weight: 900;
+    }
+}

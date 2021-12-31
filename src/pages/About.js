@@ -49,7 +49,7 @@ const About = () => {
                     <AboutImageContainer desc="Untitled, wheel worked and hand engraved, bisque firing temp:1100°C, glaze and saggar firing temp:1100°,23×23×55, 2020" imageStyle={{ maxWidth : 520 }} images={[Pic14]} />
                     <p>Sometimes I fill the whole surface and sometimes part of it with symmetrical and repetitive patterns. The harmony and contrast of the matte and unglazed engraved surfaces beside the plain and shiny surfaces that are achieved by raku firing, is for me like vicissitudes of contemporary human life.The picture below is my work that have selected for Korean International Ceramic Biennale in 2021. </p>
                     <AboutImageContainer desc="Geometric Ballad, raku fired and bone fired brown stoneware, 90×70×50 cm" imageStyle={{ maxWidth : 520 }} images={[Pic15]} />
-                    <div>
+                    <p>
                         {`FAHIMEH HEYDARI
                         1983, Urmia, Iran
                         Education
@@ -79,7 +79,7 @@ const About = () => {
                         Publications 
                         Translation from Turkish to Persian of the book Terrasigillata, Sevim Cizer
 `}
-                    </div>
+                    </p>
 
                 </div>
             </div>

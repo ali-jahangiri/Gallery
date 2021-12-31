@@ -1,8 +1,8 @@
-import { _date } from "../utils";
+import { makeLeanDate, _date } from "../utils";
 
 const HomePostBlock = ({ EnTitle , CreateDate = "" , EnDescription , }) => {
 
-    const leanDate = Number(CreateDate.slice(CreateDate.indexOf("(") + 1 , CreateDate.indexOf(")")));
+    const leanDate = makeLeanDate(CreateDate);
 
     return (
         <div className="homePostBlock">

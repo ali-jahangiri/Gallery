@@ -32,6 +32,8 @@ function idGenerator () {
 
 export const _date = (targetDate) => dayjs(targetDate).calendar("jalali").locale('fa')
 
+export const makeLeanDate = CreateDate => Number(CreateDate.slice(CreateDate.indexOf("(") + 1 , CreateDate.indexOf(")")));
+
 export {
     selfClearTimeout,
     debounce,

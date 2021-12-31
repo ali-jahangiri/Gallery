@@ -4,6 +4,7 @@ import ContactUs from './ContactUs';
 import Blog from "./Blog";
 import NotFound from "./NotFound";
 import About from "./About";
+import SingleBlog from "./SingleBlog";
 
 export {
     Home,
@@ -11,5 +12,6 @@ export {
     ContactUs,
     Blog,
     NotFound,
-    About
+    About,
+    SingleBlog,
 }
