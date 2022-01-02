@@ -26,4 +26,30 @@
             font-size: .9rem;
         }
     }
+
+    &__trigger {
+
+        button {
+            width: 100%;
+            border: none;
+            background: $navy;
+            padding: .3rem;
+            border-radius: $radius;
+            color: white;
+            min-height: 3rem;
+        }
+    }
+
+
+    @media (max-width : $sm) {
+        width: 100%;
+        padding: 0;
+        margin: 1.5rem 0;
+        .homePostBlock {
+
+            &__trigger {
+                width: 100%;
+            }
+        }
+    }
 }

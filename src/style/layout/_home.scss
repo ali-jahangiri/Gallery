@@ -49,9 +49,36 @@
 
 
     &__otherGoddamnContainerForNoPurpose {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+
+
+        &__intro {
+            font-size: 2rem;
+            p {
+                margin: 0;
+                margin-top: 2rem;
+            }
+        }
+        
+        &__itemContainer {
+            display: flex;
+            align-items: center;
+            // justify-content: space-between;
+
+        }
+
+
+        &--fa {
+            .home {
+                &__otherGoddamnContainerForNoPurpose {
+                    &__intro {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
     }
 
 
@@ -59,7 +86,10 @@
     @media (max-width : $sm) {
         .home {
             &__otherGoddamnContainerForNoPurpose {
-                flex-direction: column;
+
+                &__itemContainer {
+                    flex-direction: column;
+                }
             }
         }
     }

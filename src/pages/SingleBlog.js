@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import TagBar from "../components/TagBar";
-import { makeLeanDate, _date } from "../utils";
+import useDate from "../hooks/useDate";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
@@ -10,6 +10,7 @@ const SingleBlog = ({ match : { params } , history }) => {
     const [blogData, setBlogData] = useState({});
 
     const fetcher = useRequest();
+    const dateCreatorHandler = useDate();
 
     useEffect(function fetchSpecificBlogItemHandler() {
         if(params.id && !isNaN(params.id)) {
@@ -45,13 +46,13 @@ const SingleBlog = ({ match : { params } , history }) => {
                             </h1>
                             <div>
                                 <TagBar style={{ backgroundColor : "white" , border : "none" }} items={["ArtWork" , "Paint"]} />
-                                <p>{_date(makeLeanDate(blogData.CreateDate)).format("YYYY/MM/DD")}</p>
+                                <p>{dateCreatorHandler(blogData.CreateDate)}</p>
                             </div>
                         </div>
                         <div className="singleBlog__description">
                             {/* <p>{blogData.EnDescription}</p> */}
                             <p>
-                                Distinctio esse ut modi minima libero dolor beatae nobis nostrum. Similique dolorem a. Voluptates quasi eum ut omnis eum. Dolor pariatur ducimus dolorum fugit totam.
+                                {/* Distinctio esse ut modi minima libero dolor beatae nobis nostrum. Similique dolorem a. Voluptates quasi eum ut omnis eum. Dolor pariatur ducimus dolorum fugit totam.
  
 Incidunt sit odit eos nam dolorum et. Odio eveniet delectus. Aut et ut qui illo consectetur itaque et inventore. Voluptatem sunt rerum culpa aut illo est provident tempora.
  
@@ -60,7 +61,7 @@ Est similique illo veniam laudantium non sint. Sapiente pariatur dolore quasi. E
  
 Incidunt sit odit eos nam dolorum et. Odio eveniet delectus. Aut et ut qui illo consectetur itaque et inventore. Voluptatem sunt rerum culpa aut illo est provident tempora.
  
-Est similique illo veniam laudantium non sint. Sapiente pariatur dolore quasi. Et non odio neque porro maxime sed illo consequatur. Eius omnis temporibus magnam officiis. Est quibusdam est autem.
+Est similique illo veniam laudantium non sint. Sapiente pariatur dolore quasi. Et non odio neque porro maxime sed illo consequatur. Eius omnis temporibus magnam officiis. Est quibusdam est autem. */}
                             </p>
                         </div>
                         <div className="singleBlog__slider">

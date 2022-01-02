@@ -1,7 +1,44 @@
 .layout {
     margin-top: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    
+    &__label {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+
+        
+        p {
+            position: relative;
+            display: inline;
+            color: $defaultTextColor;
+
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 110%;
+                width: 100%;
+                height: .2rem;
+                background-color: $navy;
+                transition: .3s;
+                
+            }
+        }
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &--fa {
+        .layout {
+            &__label {
+                text-align: right;
+            }
+        }
+    }
 }

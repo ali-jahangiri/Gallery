@@ -3,6 +3,7 @@ import Slider from "react-slick";
 
 import HomeLoadingScreen from "../components/HomeLoadingScreen";
 import HomePostBlock from "../components/HomePostBlock";
+import useAppContext from "../hooks/useAppContext";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
@@ -15,7 +16,9 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const [homeData, setHomeData] = useState({ post : [] , slider : [{ Id : "" , Title : "" , ImageList : [] , ShortDescription : "" }] });
 
-    const fetcher = useRequest()
+    const fetcher = useRequest();
+
+    const { getContext : { lang } } = useAppContext();
 
     const sliderConfig = {
         dots: false,
@@ -37,7 +40,7 @@ const Home = () => {
         if(homeData)
         fetcher(reqUrl.getSlider)
             .then(slider => {
-                fetcher(reqUrl.getPost)
+                fetcher(reqUrl.getHomeFooterData)
                     .then(post => {
                         setHomeData({ post , slider });
                         setLoading(false);
@@ -69,10 +72,15 @@ const Home = () => {
                             <RightIcon />
                         </div>
                     </div>
-                    <div className="home__otherGoddamnContainerForNoPurpose">
-                        {
-                            homeData.post.slice(0 , 2).map((item , index) => <HomePostBlock {...item} key={index} />)
-                        }
+                    <div className={`home__otherGoddamnContainerForNoPurpose ${lang === "fa" ? "home__otherGoddamnContainerForNoPurpose--fa" : ""}`}>
+                        <div className="home__otherGoddamnContainerForNoPurpose__intro">
+                            <p>{lang === "fa" ? "پست های برگزیده" : "Suggested Post"}</p>
+                        </div>
+                        <div className="home__otherGoddamnContainerForNoPurpose__itemContainer">
+                            {
+                                homeData.post.slice(0 , 2).map((item , index) => <HomePostBlock {...item} key={index} />)
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

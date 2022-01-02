@@ -5,6 +5,8 @@ import Blog from "./Blog";
 import NotFound from "./NotFound";
 import About from "./About";
 import SingleBlog from "./SingleBlog";
+import Events from "./Events";
+import SingleEvent from "./SingleEvent";
 
 export {
     Home,
@@ -14,4 +16,6 @@ export {
     NotFound,
     About,
     SingleBlog,
+    Events,
+    SingleEvent,
 }
