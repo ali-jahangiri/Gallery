@@ -1,10 +1,33 @@
+@keyframes labelFadeIn {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes growUnderline {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 110%;
+    }
+}
+
 .layout {
     margin-top: 70px;
     
     &__label {
-        font-size: 1.5rem;
-        font-weight: 600;
+        font-size: 1.9rem;
         margin-bottom: 2rem;
+        
+        opacity: 0;
+        animation: labelFadeIn .7s forwards alternate;
 
         
         p {
@@ -18,10 +41,13 @@
                 position: absolute;
                 left: 0;
                 top: 110%;
-                width: 100%;
+                width: 0;
                 height: .2rem;
-                background-color: $navy;
+                background-color: lighten($color: $navy, $amount: 20%);
                 transition: .3s;
+
+
+                animation: growUnderline .6s .6s forwards alternate;
                 
             }
         }
@@ -32,12 +58,38 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
+        transition: .3s;
+        opacity: 0;
+        transform: translateY(-10px);
+    
+        &--haveChild {
+            opacity: 1;
+            transform: translateY(0px);
+        }
     }
 
     &--fa {
         .layout {
             &__label {
                 text-align: right;
+
+                p {
+                    &::after {
+                        left: unset;
+                        right: 0;
+                        top: 120%;
+                    }
+                }
+            }
+        }
+    }
+
+
+    @media (max-width : $sm) {
+        .layout {
+            
+            &__container {
+                justify-content: center;
             }
         }
     }

@@ -3,24 +3,20 @@ import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 import Layout from "../components/Layout";
 import LayoutItem from "../components/LayoutItem";
-import useAppContext from "../hooks/useAppContext";
 
 const Blog = () => {
     const [blogItem, setBlogItem] = useState([]);
     const fetcher = useRequest();
-    const { getContext : { lang } } = useAppContext()
-
+    
 
     useEffect(function fetchInitialBlogItemHandler() {
         fetcher(reqUrl.getPost)
             .then(setBlogItem)
     } , []);
 
-    const isFa = lang === "fa";
-
     return (
         <div className="container">
-            <Layout isFa={isFa} label={isFa ? "انتشارات" : "publication"}>
+            <Layout label={{ fa : "انتشارات" , en : "publication"}}>
                 {
                     blogItem.map((item , index) => (
                         <LayoutItem

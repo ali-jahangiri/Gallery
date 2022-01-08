@@ -7,6 +7,9 @@ import About from "./About";
 import SingleBlog from "./SingleBlog";
 import Events from "./Events";
 import SingleEvent from "./SingleEvent";
+import Product from "./Product";
+import ProductsDirectory from "./ProductsDirectory";
+import Purchase from "./Purchase";
 
 export {
     Home,
@@ -18,4 +21,7 @@ export {
     SingleBlog,
     Events,
     SingleEvent,
+    Purchase,
+    ProductsDirectory,
+    Product,
 }

@@ -1,10 +1,13 @@
 import AppContextProvider from "./provider/AppContextProvider";
+import InitialProvider from "./provider/InitialProvider";
 import AppRoute from "./routes/AppRoute";
 
 const App = () => {
     return (
         <AppContextProvider>
-            <AppRoute />
+            <InitialProvider>
+                <AppRoute />
+            </InitialProvider>
         </AppContextProvider>
     )
 }

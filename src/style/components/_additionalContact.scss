@@ -27,4 +27,13 @@
             color: grey;
         }
     }
+
+    @media (max-width : $sm) {
+        flex-direction: column;
+
+        & > div {
+            direction: rtl;
+            margin: 1rem;
+        }
+    }
 }

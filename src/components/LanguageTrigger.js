@@ -3,7 +3,11 @@ import useAppContext from "../hooks/useAppContext";
 const LanguageTrigger = ({ isMenuOpen }) => {
     const { setContext , getContext } = useAppContext();
 
-    const changeLanguageHandler = () => setContext('lang' , getContext.lang === "fa" ? "en" : 'fa')
+    const changeLanguageHandler = () => {
+        const newLang = getContext.lang === "fa" ? "en" : 'fa';
+        setContext('lang' , newLang);
+        localStorage.setItem("userLang" , newLang);
+    }
 
     return (
         <div className={`languageTrigger ${isMenuOpen ? "languageTrigger--hide" : ""}`}>

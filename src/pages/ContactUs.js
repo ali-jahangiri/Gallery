@@ -96,6 +96,7 @@ const ContactUs = () => {
                         {
                             formItemList.map((item , index) => (
                                 <Input
+                                    style={{ backgroundColor : "transparent" , border : "2px solid lightgrey" }}
                                     isRequired={item.isRequired}
                                     haveError={error.includes(item)}
                                     key={index}
@@ -113,7 +114,8 @@ const ContactUs = () => {
                         </button>
                     </div>
                 </div>
-                <div data-image={Pic} style={{ background :  `url(${Pic})` }} className="contact__images">
+                <div style={{ background :  `url(${Pic})` }} className="contact__images">
+                    <div />
                 </div>
             </div>
             <div className="contact__more">

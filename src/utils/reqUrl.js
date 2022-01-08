@@ -6,7 +6,11 @@ const reqUrl = {
     getSinglePost : "GetPost?id=",
     getEvents : "GetAllEvents?currentpage=1&pagesize=2",
     getSingleEvent : "GetEvent?id=",
-    getHomeFooterData : "GetFooteResult"
+    getHomeFooterData : "GetFooteResult",
+    getCategories: "GetAllCategory",
+    getCategory : "GetCategory",
+    getAllProducts : "GetAllProducts?currentpage=1&pagesize=2&catId=",
+    getSingleProduct : "GetProduct?id=",
 }
 
 

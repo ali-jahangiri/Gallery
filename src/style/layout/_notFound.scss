@@ -12,7 +12,16 @@
         color: $defaultTextColor;
 
         &:first-child {
-            font-size: 3rem;
+            font-size: 13rem;
+        }
+        
+        &:last-child {
+            cursor: pointer;
+            transition: .3s;
+            
+            &:hover {
+                color: $navy;
+            }
         }
     }
 }
