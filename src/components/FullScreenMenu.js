@@ -8,7 +8,7 @@ import MenuItem from "./MenuItem";
 
 const pathClone = [
     "about",
-    "exhibition",
+    "exhibitions",
     "purchase",
     "archive",
     "publication",

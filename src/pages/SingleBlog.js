@@ -41,8 +41,7 @@ const SingleBlog = ({ match : { params } , history }) => {
                     !loading && <React.Fragment>
                         <div className="singleBlog__intro">
                             <h1>
-                                {/* {blogData.EnTitle} */}
-                                At nihil vel. Ratione quasi in totam quae quia dolor enim esse voluptates. Sunt dolores alias.
+                                {blogData.EnTitle}
                             </h1>
                             <div>
                                 <TagBar style={{ backgroundColor : "white" , border : "none" }} items={["ArtWork" , "Paint"]} />
@@ -50,18 +49,8 @@ const SingleBlog = ({ match : { params } , history }) => {
                             </div>
                         </div>
                         <div className="singleBlog__description">
-                            {/* <p>{blogData.EnDescription}</p> */}
+                            <p>{blogData.EnDescription}</p>
                             <p>
-                                {/* Distinctio esse ut modi minima libero dolor beatae nobis nostrum. Similique dolorem a. Voluptates quasi eum ut omnis eum. Dolor pariatur ducimus dolorum fugit totam.
- 
-Incidunt sit odit eos nam dolorum et. Odio eveniet delectus. Aut et ut qui illo consectetur itaque et inventore. Voluptatem sunt rerum culpa aut illo est provident tempora.
- 
-Est similique illo veniam laudantium non sint. Sapiente pariatur dolore quasi. Et non odio neque porro maxime sed illo consequatur. Eius omnis temporibus magnam officiis. Est quibusdam est autem.
-                                Distinctio esse ut modi minima libero dolor beatae nobis nostrum. Similique dolorem a. Voluptates quasi eum ut omnis eum. Dolor pariatur ducimus dolorum fugit totam.
- 
-Incidunt sit odit eos nam dolorum et. Odio eveniet delectus. Aut et ut qui illo consectetur itaque et inventore. Voluptatem sunt rerum culpa aut illo est provident tempora.
- 
-Est similique illo veniam laudantium non sint. Sapiente pariatur dolore quasi. Et non odio neque porro maxime sed illo consequatur. Eius omnis temporibus magnam officiis. Est quibusdam est autem. */}
                             </p>
                         </div>
                         <div className="singleBlog__slider">

@@ -11,6 +11,10 @@ const reqUrl = {
     getCategory : "GetCategory",
     getAllProducts : "GetAllProducts?currentpage=1&pagesize=2&catId=",
     getSingleProduct : "GetProduct?id=",
+    getAllExhibitions : "GetAllExhibitions?currentPage=1&pagesize=1",
+    getSingleExhibition : "GetExhibition?id=",
+    getAllArchive : "GetAllArchive?currentpage=1&pagesize=2",
+    getSingleArchive : "GetArchive?id="
 }
 
 

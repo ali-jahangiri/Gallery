@@ -10,6 +10,11 @@ import SingleEvent from "./SingleEvent";
 import Product from "./Product";
 import ProductsDirectory from "./ProductsDirectory";
 import Purchase from "./Purchase";
+import Exhibitions from "./Exhibitions";
+import SingleExhibition from "./SingleExhibition";
+import Archive from "./Archive";
+import SingleArchive from "./SingleArchive";
+
 
 export {
     Home,
@@ -24,4 +29,8 @@ export {
     Purchase,
     ProductsDirectory,
     Product,
+    Exhibitions,
+    SingleExhibition,
+    Archive,
+    SingleArchive,
 }
