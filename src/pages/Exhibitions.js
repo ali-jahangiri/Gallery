@@ -17,7 +17,7 @@ const Exhibitions = () => {
         <div className="container">
             <Layout label={{ fa : "نمایشگاه ها" , en : "Exhibitions" }}>
                 {
-                    exhibitions.map((exhibition , i) => (
+                    [...exhibitions , ...exhibitions.slice(2)].map((exhibition , i) => (
                         <LayoutItem
                             redirectBase="exhibition"
                             key={i}

@@ -1,0 +1,20 @@
+.innerSliderController {
+    margin-left: 1rem;
+    
+    div {
+        user-select: none;
+        cursor: pointer;
+        svg {
+            width: 3rem;
+            height: 3rem;
+            fill: $darkGrey;
+            transition: .3s;
+        }
+        
+        &:hover {
+            svg {
+                fill: $defaultTextColor;
+            }
+        }
+    }
+}
