@@ -5,3 +5,16 @@ body {
     background-color: $grey;
 }
 
+.nestedSlider {
+    display: flex;
+    
+    & > div {
+    width: 700px;
+    }
+
+    @media (max-width : $sm) {
+        img {
+            width: 100%;
+        }
+    }
+}

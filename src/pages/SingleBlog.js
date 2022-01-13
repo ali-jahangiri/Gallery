@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import Spinner from "../components/Spinner";
 import TagBar from "../components/TagBar";
 import useDate from "../hooks/useDate";
 import reqUrl from "../utils/reqUrl";
@@ -38,14 +39,14 @@ const SingleBlog = ({ match : { params } , history }) => {
         <div className={`singleBlog ${!loading ? "singleBlog--loaded" : ""}`}>
             <div className="container">
                 {
-                    !loading && <React.Fragment>
+                    loading ? <Spinner /> : <React.Fragment>
                         <div className="singleBlog__intro">
                             <h1>
                                 {blogData.EnTitle}
                             </h1>
                             <div>
                                 <TagBar style={{ backgroundColor : "white" , border : "none" }} items={["ArtWork" , "Paint"]} />
-                                <p>{dateCreatorHandler(blogData.CreateDate)}</p>
+                                <p>{dateCreatorHandler(blogData.CreateDate || "")}</p>
                             </div>
                         </div>
                         <div className="singleBlog__description">
@@ -57,9 +58,9 @@ const SingleBlog = ({ match : { params } , history }) => {
                             <Slider {...sliderConfig}>
                                 {
                                    blogData.ImageList.map((item , i) => (
-                                       <div>
-                                           <div style={{ background : `url(${item})` }} className="singleBlog__slider__item" />
-                                       </div>
+                                        <div key={i}>
+                                            <div style={{ background : `url(${item})` }} className="singleBlog__slider__item" />
+                                        </div>
                                    )) 
                                 }
                             </Slider>

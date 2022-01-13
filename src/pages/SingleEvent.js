@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 import useDate from "../hooks/useDate";
+import Spinner from "../components/Spinner";
 
 const SingleEvent = ({ match : { params } , history }) => {
 
@@ -30,7 +31,7 @@ const SingleEvent = ({ match : { params } , history }) => {
     return (
         <div className={`singleEvent ${!loading ? "singleEvent--loaded" : ""}`}>
             {
-                !loading && <div className="container">
+                loading ? <Spinner /> : <div className="container">
                     <div className="singleEvent__title">
                         <h1>{eventData.EnTitle}</h1>
                         <div>

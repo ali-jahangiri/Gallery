@@ -23,6 +23,7 @@ const Archive = () => {
                             key={index}
                             createTime={archive.CreateTime}
                             title={archive.EnTitle}
+                            images={archive.ImageList}
                             {...archive}
                         />
                     ))

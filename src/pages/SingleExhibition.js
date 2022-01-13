@@ -32,7 +32,6 @@ const SingleExhibition = ({ match : { params } }) => {
     }
 
 
-
     return (
         <div className={`singleExhibition ${exhibition ? "singleExhibition--loaded" : ""}`}>
             <div className="container">
@@ -43,8 +42,8 @@ const SingleExhibition = ({ match : { params } }) => {
                             <p>{exhibition.EnShortDescription}</p>
                             <p>{dateCreatorHandler(exhibition.CreateDate || "")}</p>
                         </div>
-                        <div className="singleExhibition__slider">
-                            <div style={{ width : 700 }}>
+                        <div className="singleExhibition__slider nestedSlider">
+                            <div>
                                 <Slider {...sliderConfig} ref={sliderRef}>
                                     {
                                         ["https://www.fahimehheydari.ir/Uploades/BO5YOFWA47FEP6DMU2P4G3Z9P285MJVNKYH7YCB.png","https://www.fahimehheydari.ir/Uploades/BO5YOFWA47FEP6DMU2P4G3Z9P285MJVNKYH7YCB.png","https://www.fahimehheydari.ir/Uploades/BO5YOFWA47FEP6DMU2P4G3Z9P285MJVNKYH7YCB.png"].map((image , i) => (
@@ -56,8 +55,8 @@ const SingleExhibition = ({ match : { params } }) => {
                                         ))
                                     }
                                 </Slider>
+                                <InnerPageSliderController sliderRef={sliderRef} />
                             </div>
-                            <InnerPageSliderController sliderRef={sliderRef} />
                         </div>
                 </div>
             }

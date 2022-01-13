@@ -1,0 +1,27 @@
+.imageLightBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000000f2;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    padding-top: 60px;
+
+
+    p {
+        position: absolute;
+        color: white;
+        left: 20px;
+        top: 65px;
+        font-weight: 800;
+        cursor: pointer;
+    }
+
+    img {
+        max-width: 80%;
+    }
+}
