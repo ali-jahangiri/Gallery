@@ -1,5 +1,5 @@
 const client = {
-    appName : "Combo",
+    appName : "Fahimeh Haydari",
     headerAfterAppNameDesc : "a simple designer website",
     headerMenuList : {
         en : {
@@ -9,7 +9,7 @@ const client = {
                 "Exhibition",
                 "Purchase",
                 "Archive",
-                "Publication",
+                "Note and Publication",
                 "Events",
                 "Contact",
             ]

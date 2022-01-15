@@ -6,14 +6,15 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     z-index: 99;
-    padding-top: 60px;
-
+    overflow-y: auto;
+    padding-top: 65px;
+    padding-bottom: 10px;
 
     p {
-        position: absolute;
+        position: fixed;
         color: white;
         left: 20px;
         top: 65px;
@@ -23,5 +24,10 @@
 
     img {
         max-width: 80%;
+    }
+
+
+    @media (max-width : $lg) {
+        align-items: center;
     }
 }

@@ -2,22 +2,20 @@
     position: relative;
     margin-top: 100px;
     
-
-    &__slider {
-        display: flex;
-        margin-top: 2rem;
-        justify-content: center;
-        align-items: flex-end;
-
-        img {
-            width: 700px;
-        }
-    }
-
-    &__slide {
+    &__images {
         width: 100%;
         display: flex;
-        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        div {
+            width: 400px;
+            margin: 1rem 0;
+            img {
+                width: 100%;
+                cursor: pointer;
+            }
+        }
     }
 
     &::after {

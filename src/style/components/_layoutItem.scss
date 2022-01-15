@@ -4,34 +4,6 @@
     margin: .5rem;
     margin-bottom: 1rem;
 
-    &__imageSlide {
-        width: 100%;
-        height: 30rem;
-        background-position: center center !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        position: relative;
-
-
-        &::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            background-color: #00000042;
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            transition: .3s;
-        }
-
-        &:hover {
-            &::after {
-                opacity: 1;
-            }
-        }
-    }
-
     &__details {
 
         div {
@@ -60,6 +32,7 @@
             margin-top: .5rem;
             cursor: pointer;
             color: $defaultTextColor;
+            padding-right: 1rem;
         }
 
         span {
@@ -70,8 +43,35 @@
 
     &__imageCover {
         width: 100%;
-        height: 15rem;
-        background: linear-gradient(45deg, $navy, transparent); 
+        min-height: 250px;
+        position: relative;
+        cursor: pointer;
+        background-color: lighten($color: $navy, $amount: 25%);
+
+        img {
+            width: 100%;
+            height: 250px;
+        }
+
+
+        &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: lighten($color: $navy, $amount: 10%);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            transition: .3s;
+            opacity: 0;
+        }
+
+        &:hover {
+            &::after {
+                opacity: .6;
+            }
+        }
     }
 
     &:hover {

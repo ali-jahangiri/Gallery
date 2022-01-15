@@ -31,22 +31,4 @@
             }    
         }
     }
-
-    &__order {
-        margin-top: 1.5rem;
-        width: 100%;
-        
-        button {
-            width: 100%;
-            background-color: lighten($color: $navy, $amount: 20);
-            border-radius: $radius;
-            border: none;
-            height: 3rem;
-            transition: .3s;
-
-            &:hover {
-                background-color: $navy;
-            }
-        }
-    }
 }

@@ -1,0 +1,20 @@
+.productCover {
+    width: 100%;
+    position: relative;
+    height: 250px;
+    top: -10px;
+    left: -10px;
+
+
+    div {
+        position: absolute;
+        width: 100%;
+        transition: .3s;
+        cursor: pointer;
+        
+        img {
+            width: 90%;
+            height: 220px;
+        }
+    }
+}

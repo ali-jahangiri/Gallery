@@ -29,11 +29,7 @@ const Product = ({ match : { params } }) => {
     } , []);
 
 
-    const orderHandler = () => {
-        
-    }
-
-
+    
     const isFa = getContext.lang === "fa";
 
     return (
@@ -55,11 +51,16 @@ const Product = ({ match : { params } }) => {
                         </div>
                         <div className="product__header__details">
                             <p className="product__header__details__name">{product.EnName}</p>
-                            <p className="product__header__details__description">{Parser(product.EnDescription || "")}</p>
-                        <div className="product__order">
-                            <button onClick={orderHandler}>{isFa ? "سفارش" : "Order"}</button>
+                            <p className="product__header__details__description">{Parser(product.EnDescription || `Libero eligendi laboriosam. Autem consequatur non molestias aut rerum qui. Eos maiores ut. Voluptate reprehenderit minus. Nulla quisquam voluptates est aut. Ab et et consequuntur nobis labore odit.
+ 
+Repudiandae est nesciunt eum alias ut dolore. Ut vel quo nobis voluptatem provident excepturi. Velit temporibus facilis. Et perspiciatis occaecati et. Harum ex temporibus ducimus.
+ 
+Repellat sunt doloribus enim ipsum voluptas doloribus expedita. Vero aut voluptate eaque vel suscipit dolorem facilis et nemo. Non molestiae at cupiditate repellendus sit blanditiis. Cupiditate et necessitatibus.`)}</p>
                         </div>
-                        </div>
+                    </div>
+                    <div className="product__price">
+                        <p>{isFa ? "قیمت" : "Price"}</p>
+                        <span>20000</span>
                     </div>
                 </div>
             }
