@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Spinner from "../components/Spinner";
 import TagBar from "../components/TagBar";
-import useDate from "../hooks/useDate";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
@@ -11,8 +10,6 @@ const SingleBlog = ({ match : { params } , history }) => {
     const [blogData, setBlogData] = useState({});
 
     const fetcher = useRequest();
-    const dateCreatorHandler = useDate();
-
     useEffect(function fetchSpecificBlogItemHandler() {
         if(params.id && !isNaN(params.id)) {
             fetcher(`${reqUrl.getSinglePost}${params.id}`)
@@ -46,7 +43,6 @@ const SingleBlog = ({ match : { params } , history }) => {
                             </h1>
                             <div>
                                 <TagBar style={{ backgroundColor : "white" , border : "none" }} items={["ArtWork" , "Paint"]} />
-                                <p>{dateCreatorHandler(blogData.CreateDate || "")}</p>
                             </div>
                         </div>
                         <div className="singleBlog__description">

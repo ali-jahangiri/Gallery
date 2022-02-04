@@ -1,6 +1,5 @@
 .layoutItem {
-    width: 45%;
-    flex: 1 0 300px;
+    width: 23%;
     margin: .5rem;
     margin-bottom: 1rem;
 
@@ -85,6 +84,18 @@
 
         }
     }
+  
+    @media (max-width : $lg) {
+        width: 40%;
+    }
+
+    @media (max-width : $md) {
+        width: 100%;
+        &:not(&:last-child) {
+            margin-bottom: 5rem;
+        }
+    }
+
 
     @media (max-width : $sm) {
         flex: 1 0 100%;

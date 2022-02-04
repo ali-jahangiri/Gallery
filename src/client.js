@@ -1,15 +1,14 @@
 const client = {
     appName : "Fahimeh Haydari",
-    headerAfterAppNameDesc : "a simple designer website",
     headerMenuList : {
         en : {
             title :"Menu",
             itemsList : [
                 "About",
-                "Exhibition",
+                "Exhibitions",
                 "Purchase",
                 "Archive",
-                "Note and Publication",
+                "Notes and Publication",
                 "Events",
                 "Contact",
             ]

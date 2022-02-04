@@ -76,7 +76,7 @@ const Home = () => {
                         <div className="home__otherGoddamnContainerForNoPurpose__intro">
                             <p>{lang === "fa" ? "پست های برگزیده" : "Suggested Post"}</p>
                         </div>
-                        <div className="home__otherGoddamnContainerForNoPurpose__itemContainer">
+                        <div style={{ justifyContent : lang === "fa" ? "flex-end" : "flex-start" }} className="home__otherGoddamnContainerForNoPurpose__itemContainer">
                             {
                                 homeData.post.slice(0 , 2).map((item , index) => <HomePostBlock {...item} key={index} />)
                             }

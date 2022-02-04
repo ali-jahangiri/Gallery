@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Parser from "html-react-parser";
 import Spinner from "../components/Spinner";
-import useAppContext from "../hooks/useAppContext";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
 const Product = ({ match : { params } }) => {
     const [product, setProduct] = useState();
     const fetcher = useRequest();
-    const { getContext } = useAppContext();
     
     const sliderConfig = {
         dots: false,
@@ -27,10 +25,6 @@ const Product = ({ match : { params } }) => {
         fetcher(`${reqUrl.getSingleProduct}${params.id}`)
             .then(data => setProduct(data[0]));
     } , []);
-
-
-    
-    const isFa = getContext.lang === "fa";
 
     return (
         <div className="product">
@@ -57,10 +51,6 @@ Repudiandae est nesciunt eum alias ut dolore. Ut vel quo nobis voluptatem provid
  
 Repellat sunt doloribus enim ipsum voluptas doloribus expedita. Vero aut voluptate eaque vel suscipit dolorem facilis et nemo. Non molestiae at cupiditate repellendus sit blanditiis. Cupiditate et necessitatibus.`)}</p>
                         </div>
-                    </div>
-                    <div className="product__price">
-                        <p>{isFa ? "قیمت" : "Price"}</p>
-                        <span>20000</span>
                     </div>
                 </div>
             }

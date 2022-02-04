@@ -1,30 +1,21 @@
 import useAppContext from "../hooks/useAppContext";
-import useDate from "../hooks/useDate";
 
-const HomePostBlock = ({ EnTitle , CreateDate = "" , EnDescription , }) => {
-
-    // const dateCreatorHandler = useDate();
+const HomePostBlock = ({ EnTitle , EnDescription , }) => {
 
     const { getContext : { lang } } = useAppContext()
 
-    const redirectHandler = () => {
-
-    }
-
+    
     return (
-        <div className="homePostBlock">
+        <div className={`homePostBlock ${lang === "fa" ? "homePostBlock--fa" : ""}`}>
             <div className="homePostBlock__title">
                 <div>
-                    <p>{EnTitle}</p>
+                    <p>{EnTitle}<span /></p>
                 </div>
-                {/* <span>{dateCreatorHandler(CreateDate)}</span> */}
             </div>
             <div>
                 <p>{EnDescription}</p>
             </div>
-            <div className="homePostBlock__trigger">
-                <button onClick={redirectHandler}>{lang === "fa" ? "بیشتر" : "Read"}</button>
-            </div>
+            <button className="homePostBlock__trigger">{lang === "fa" ? "بیشتر" : "Read"}</button>
         </div>
     )
 }

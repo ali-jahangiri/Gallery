@@ -31,7 +31,10 @@ const Header = () => {
     }
 
 
-    const redirectToHome = () => history.push("/")
+    const redirectToHome = () => {
+        if(menuOpen) setMenuOpen(false);
+        history.push("/");
+    }
 
     return (
         <div className={`appHeader ${menuOpen ? "appHeader--menuOpen" : ""}`}>

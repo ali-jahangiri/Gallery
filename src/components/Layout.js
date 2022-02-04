@@ -6,6 +6,8 @@ const Layout = ({ children , label = { fa : "" , en : "" } }) => {
 
     const isFa = getContext.lang === "fa";
 
+
+
     return (
         <div className={`layout ${isFa ? "layout--fa" : ""}`}>
             <div className="layout__label">
@@ -14,7 +16,9 @@ const Layout = ({ children , label = { fa : "" , en : "" } }) => {
             {
                 !Boolean(children.length) && <Spinner />
             }
-            <div className={`layout__container ${children.length ? "layout__container--haveChild" : ""}`}>
+            <div 
+                style={{ justifyContent : isFa ? "flex-end" : "flex-start" }} 
+                className={`layout__container ${children.length ? "layout__container--haveChild" : ""}`}>
                 {children}
             </div>
         </div>

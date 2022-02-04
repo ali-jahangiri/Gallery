@@ -38,9 +38,6 @@ const FullScreenMenu = ({ isInClose , setMenuOpen , setIsInClosing }) => {
                     <div className="menu__author__name">
                         <p>{client.appName}</p>
                     </div>
-                    <div className="menu__author__desc">
-                        <p>{client.headerAfterAppNameDesc}</p>
-                    </div>
                 </div>
                 <div className="menu__itemDirectory">
                     {

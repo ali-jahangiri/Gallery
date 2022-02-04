@@ -56,7 +56,6 @@
     &__container {
         display: flex;
         align-items: flex-start;
-        justify-content: space-between;
         flex-wrap: wrap;
         transition: .3s;
         opacity: 0;
@@ -84,12 +83,11 @@
         }
     }
 
-
-    @media (max-width : $sm) {
+    @media (max-width : $lg) {
         .layout {
             
             &__container {
-                justify-content: center;
+                justify-content: center !important;
             }
         }
     }

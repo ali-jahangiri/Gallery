@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import ImageLightBox from "../components/ImageLightBox";
 import Spinner from "../components/Spinner";
-import useDate from "../hooks/useDate";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
 const SingleExhibition = ({ match : { params } }) => {
     const [exhibition, setExhibition] = useState(null);
-    const fetcher = useRequest();
-    const dateCreatorHandler = useDate();
+    const fetcher = useRequest();    
     const [selectedImage, setSelectedImage] = useState("");
 
 
@@ -33,7 +31,6 @@ const SingleExhibition = ({ match : { params } }) => {
                         <div className="singleExhibition__details">
                             <h1>{exhibition.EnTitle}</h1>
                             <p>{exhibition.EnShortDescription}</p>
-                            <p>{dateCreatorHandler(exhibition.CreateDate || "")}</p>
                         </div>
                         <div className="singleExhibition__images">
                             {
