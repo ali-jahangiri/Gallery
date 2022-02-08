@@ -41,9 +41,6 @@ const SingleBlog = ({ match : { params } , history }) => {
                             <h1>
                                 {blogData.EnTitle}
                             </h1>
-                            <div>
-                                <TagBar style={{ backgroundColor : "white" , border : "none" }} items={["ArtWork" , "Paint"]} />
-                            </div>
                         </div>
                         <div className="singleBlog__description">
                             <p>{blogData.EnDescription}</p>

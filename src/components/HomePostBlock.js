@@ -1,6 +1,6 @@
 import useAppContext from "../hooks/useAppContext";
 
-const HomePostBlock = ({ EnTitle , EnDescription , }) => {
+const HomePostBlock = ({ EnTitle , EnDescription , Keyword }) => {
 
     const { getContext : { lang } } = useAppContext()
 
@@ -15,7 +15,7 @@ const HomePostBlock = ({ EnTitle , EnDescription , }) => {
             <div>
                 <p>{EnDescription}</p>
             </div>
-            <button className="homePostBlock__trigger">{lang === "fa" ? "بیشتر" : "Read"}</button>
+            <a href={Keyword} className="homePostBlock__trigger">{lang === "fa" ? "بیشتر" : "Read"}</a>
         </div>
     )
 }

@@ -74,7 +74,7 @@ const Home = () => {
                     </div>
                     <div className={`home__otherGoddamnContainerForNoPurpose ${lang === "fa" ? "home__otherGoddamnContainerForNoPurpose--fa" : ""}`}>
                         <div className="home__otherGoddamnContainerForNoPurpose__intro">
-                            <p>{lang === "fa" ? "پست های برگزیده" : "Suggested Post"}</p>
+                            <p>{lang === "fa" ? "مقالات های برگزیده" : "Suggested Post"}</p>
                         </div>
                         <div style={{ justifyContent : lang === "fa" ? "flex-end" : "flex-start" }} className="home__otherGoddamnContainerForNoPurpose__itemContainer">
                             {
