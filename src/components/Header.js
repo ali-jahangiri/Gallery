@@ -20,13 +20,10 @@ const Header = () => {
     const toggleMenu = () => {
         if(menuOpen) {
             setIsInClosing(true)
-            selfClearTimeout(() => {
-                    setMenuOpen(false)
-            } , 400);
-
+            selfClearTimeout(() => setMenuOpen(false) , 400);
         }else {
             setMenuOpen(true);
-            setIsInClosing(false)
+            setIsInClosing(false);
         }
     }
 

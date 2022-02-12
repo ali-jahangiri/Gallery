@@ -86,11 +86,11 @@
     }
   
     @media (max-width : $lg) {
-        width: 40%;
+        width: 30%;
     }
 
     @media (max-width : $md) {
-        width: 100%;
+        width: 45%;
         &:not(&:last-child) {
             margin-bottom: 5rem;
         }

@@ -1,0 +1,31 @@
+.productSliderController {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    user-select: none;
+    background-color: white;
+    padding: 2rem;
+
+    div {
+
+        svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            cursor: pointer;
+            transition: .3s;
+            fill: darkgrey;
+        }
+        
+        &:last-child {
+            margin-top: 1rem;
+        }
+
+
+        &:hover {
+            svg {
+                fill: grey;
+            }
+        }
+    }
+}

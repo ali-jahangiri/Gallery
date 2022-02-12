@@ -49,38 +49,34 @@ const About = () => {
                     <AboutImageContainer desc="Untitled, wheel worked and hand engraved, bisque firing temp:1100°C, glaze and saggar firing temp:1100°,23×23×55, 2020" imageStyle={{ maxWidth : 520 }} images={[Pic14]} />
                     <p>Sometimes I fill the whole surface and sometimes part of it with symmetrical and repetitive patterns. The harmony and contrast of the matte and unglazed engraved surfaces beside the plain and shiny surfaces that are achieved by raku firing, is for me like vicissitudes of contemporary human life.The picture below is my work that have selected for Korean International Ceramic Biennale in 2021. </p>
                     <AboutImageContainer desc="Geometric Ballad, raku fired and bone fired brown stoneware, 90×70×50 cm" imageStyle={{ maxWidth : 520 }} images={[Pic15]} />
-                    <p>
-                        {`FAHIMEH HEYDARI
-                        1983, Urmia, Iran
-                        Education
-                        2014   9 Eylul University, Fine Art Faculty, MA Ceramic Design, Izmir, Turkey
-                        2007   Islamic Art University, BA Handy crafts, Tabriz, Iran
-                        Awards
-                        2019 and 2015   Award of Excellence for Handicrafts National Programme, Iran
-                        2017   Third place award for Creativity and Innovation in Arts and Crafts, 3. Tabriz International Festival for Islamic Arts and Crafts IRCICA, Iran 
-                        International Events 
-                        2021   Korea International Ceramic Biennale, Geyonggy Museum, South Korea
-                        2021   Latvia International Ceramic Biennale, Daugavpils, Latvia
-                        2014-2019   1-6. International Mediterranean Terracotta symposium, Cyprus
-                        2017   7. International Golcuk Ceramic Symposium, Kocaeli, Turkey
-                                3.Tabriz International Festival for Islamic Arts, Crafts and Creativity, Iran
-                        Group Exhibitions
-                        2021   Flower time, ceramic group exhibition, Vista art gallery, Tehran, Iran
-                        2019 and 2018   2. and 3. Fajr Festival for Traditional Arts and Crafts, Tehran, Iran
-                        2016   14. Golden Pitcher Ceramic Contest, Turkey
-                        2013 and 2012   3. and 4. International Gizem Frit Ceramic Competition, Turkey
-                        Solo exhibitions
-                        2021   The Light, solo exhibition, Glassware and Ceramic Museum of Iran, Tehran
-                        2021    Harmony and Contrast, Vista Art Gallery, Tehran  
-                        Collections  
-                        Akdeniz Terracotta sculptures Open Air Museum, Cyprus 
-                        Experiences
-                        2007- present     working as a designer and producer in private studio
-                        Publications 
-                        Translation from Turkish to Persian of the book Terrasigillata, Sevim Cizer
-`}
+                    <p className="about__nutshell">
+                        <p style={{ fontSize : "1.4rem" }}>FAHIMEH HEYDARI 1983, Urmia, Iran</p>
+                        <p>Education</p>
+                        <span>2014   9 Eylul University, Fine Art Faculty, MA Ceramic Design, Izmir, Turkey</span>
+                        <span>2007   Islamic Art University, BA Handy crafts, Tabriz, Iran</span>
+                        <p>Awards</p>
+                        <span>2019 and 2015   Award of Excellence for Handicrafts National Programme, Iran</span>
+                        <span>2017   Third place award for Creativity and Innovation in Arts and Crafts, 3. Tabriz International Festival for Islamic Arts and Crafts IRCICA, Iran</span>
+                        <p>International Events </p>
+                        <span>2021   Korea International Ceramic Biennale, Geyonggy Museum, South Korea</span>
+                        <span>2021   Latvia International Ceramic Biennale, Daugavpils, Latvia</span>
+                        <span>2014-2019   1-6. International Mediterranean Terracotta symposium, Cyprus</span>
+                        <span>2017   7. International Golcuk Ceramic Symposium, Kocaeli, Turkey 3.Tabriz International Festival for Islamic Arts, Crafts and Creativity, Iran</span>
+                        <p>Group Exhibitions</p>
+                        <span>2021   Flower time, ceramic group exhibition, Vista art gallery, Tehran, Iran</span>
+                        <span>2019 and 2018   2. and 3. Fajr Festival for Traditional Arts and Crafts, Tehran, Iran</span>
+                        <span>2016   14. Golden Pitcher Ceramic Contest, Turkey</span>
+                        <span>2013 and 2012   3. and 4. International Gizem Frit Ceramic Competition, Turkey</span>
+                        <p>Solo exhibitions</p>
+                        <span>2021   The Light, solo exhibition, Glassware and Ceramic Museum of Iran, Tehran</span>
+                        <span>2021    Harmony and Contrast, Vista Art Gallery, Tehran  </span>
+                        <p>Collections  </p>
+                        <span>Akdeniz Terracotta sculptures Open Air Museum, Cyprus </span>
+                        <p>Experiences</p>
+                        <span>2007- present     working as a designer and producer in private studio</span>
+                        <p>Publications </p>
+                        <span>Translation from Turkish to Persian of the book Terrasigillata, Sevim Cizer</span>
                     </p>
-
                 </div>
             </div>
         </div>

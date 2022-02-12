@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
+import Parser from "html-react-parser";
 import Spinner from "../components/Spinner";
-import TagBar from "../components/TagBar";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
@@ -21,17 +20,6 @@ const SingleBlog = ({ match : { params } , history }) => {
     } , []);
 
 
-    const sliderConfig = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows : false,
-        autoplay : true,
-    }
-
-
     return (
         <div className={`singleBlog ${!loading ? "singleBlog--loaded" : ""}`}>
             <div className="container">
@@ -41,22 +29,10 @@ const SingleBlog = ({ match : { params } , history }) => {
                             <h1>
                                 {blogData.EnTitle}
                             </h1>
+                            <p>{blogData.EnShortDescription}</p>
                         </div>
-                        <div className="singleBlog__description">
-                            <p>{blogData.EnDescription}</p>
-                            <p>
-                            </p>
-                        </div>
-                        <div className="singleBlog__slider">
-                            <Slider {...sliderConfig}>
-                                {
-                                   blogData.ImageList.map((item , i) => (
-                                        <div key={i}>
-                                            <div style={{ background : `url(${item})` }} className="singleBlog__slider__item" />
-                                        </div>
-                                   )) 
-                                }
-                            </Slider>
+                        <div>
+                            {Parser(blogData.EnDescription)}
                         </div>
                     </React.Fragment>
                 }

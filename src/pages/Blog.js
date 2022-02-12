@@ -22,7 +22,7 @@ const Blog = () => {
                         <LayoutItem
                             redirectBase="publication"
                             createTime={item.CreateDate}
-                            images={item.ImageList}
+                            images={item.CoverImage}
                             title={item.EnTitle}
                             {...item}
                             key={index}

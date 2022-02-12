@@ -3,6 +3,7 @@ import client from "../client";
 import useAppContext from "../hooks/useAppContext";
 import { selfClearTimeout } from "../utils";
 import MenuItem from "./MenuItem";
+import BrandIcon from "../static/logo.jpg"
 
 
 
@@ -35,6 +36,9 @@ const FullScreenMenu = ({ isInClose , setMenuOpen , setIsInClosing }) => {
         <div className={`menu ${isInEn ? "menu--en" : ""} ${isInClose ? "menu--close" : ""}`}>
             <div className="menu__container">
                 <div className="menu__author">
+                    <div className="menu__brandIcon">
+                        <img src={BrandIcon} alt="brand-icon" />
+                    </div>
                     <div className="menu__author__name">
                         <p>{client.appName}</p>
                     </div>

@@ -1,13 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState , useRef } from "react";
 import Slider from "react-slick";
 import Parser from "html-react-parser";
 import Spinner from "../components/Spinner";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
+import useAppContext from "../hooks/useAppContext";
+import ProductSliderController from "../components/ProductSliderController";
+
 
 const Product = ({ match : { params } }) => {
     const [product, setProduct] = useState();
     const fetcher = useRequest();
+    const { getContext : { lang } } = useAppContext();
+    const sliderRef = useRef();
+    const [reRenderForcer, setReRenderForcer] = useState(0)
     
     const sliderConfig = {
         dots: false,
@@ -26,30 +32,38 @@ const Product = ({ match : { params } }) => {
             .then(data => setProduct(data[0]));
     } , []);
 
+    useEffect(function forceToReRenderHandler() {
+        if(product) setReRenderForcer(Date.now);
+    } , [product]);
+
+    const isFa = lang === "fa";
+    
     return (
         <div className="product">
             {
                 !product ? <Spinner /> : <div className="container">
-                    <div className="product__header">
-                        <div className="product__header__images">
-                            <Slider {...sliderConfig}>
+                    <div className="product__innerContainer">
+                        <div className="product__images">
+                            <ProductSliderController sliderRef={sliderRef.current} />
+                            <Slider ref={sliderRef} {...sliderConfig}>
                                 {
                                     product.ImageList.map((slide , index) => (
                                         <div key={index}>
-                                            <div style={{ background : `url(${slide})` }} className="product__header__images__slide">
+                                            <div style={{ background : `url(${slide})` }} className="product__images__slide">
                                             </div>
                                         </div>
                                     ))
                                 }
                             </Slider>
                         </div>
-                        <div className="product__header__details">
-                            <p className="product__header__details__name">{product.EnName}</p>
-                            <p className="product__header__details__description">{Parser(product.EnDescription || `Libero eligendi laboriosam. Autem consequatur non molestias aut rerum qui. Eos maiores ut. Voluptate reprehenderit minus. Nulla quisquam voluptates est aut. Ab et et consequuntur nobis labore odit.
- 
-Repudiandae est nesciunt eum alias ut dolore. Ut vel quo nobis voluptatem provident excepturi. Velit temporibus facilis. Et perspiciatis occaecati et. Harum ex temporibus ducimus.
- 
-Repellat sunt doloribus enim ipsum voluptas doloribus expedita. Vero aut voluptate eaque vel suscipit dolorem facilis et nemo. Non molestiae at cupiditate repellendus sit blanditiis. Cupiditate et necessitatibus.`)}</p>
+                        <div className="product__details">
+                            <p className="product__details__title">{product.EnName}</p>
+                            <span className="product__details__shortDescription">{product.EnShortDescription}</span>
+                            <p className="product__details__description">{Parser(product.EnDescription || "")}</p>
+                            <div className="product__price">
+                                <p>{isFa ? "قیمت" : "Price"}</p>
+                                <span>{product.Price} USD</span>
+                            </div>
                         </div>
                     </div>
                 </div>

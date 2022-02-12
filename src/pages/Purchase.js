@@ -13,9 +13,8 @@ const Purchase = () => {
     useEffect(function getProductCategory(){
         fetcher(reqUrl.getCategories)
             .then(setCategoryList)
-    } , [])
+    } , []);
 
-    
     return (
         <div className="purchase container">
             <Layout label={{ fa : "دسته بندی" , en : "Categories" }}>

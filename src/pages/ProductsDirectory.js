@@ -29,7 +29,7 @@ const ProductsDirectory = ({ match : { params } }) => {
                     allProduct.map((product , i) => (
                         <LayoutItem 
                             key={i}
-                            renderCoverImage={(redirectHandler) => <ProductCover onClick={redirectHandler} images={test.slice(0 , 3)} />}
+                            renderCoverImage={(redirectHandler) => <ProductCover cover={product.CoverImage} onClick={redirectHandler} images={test.slice(0 , 2)} />}
                             title={product.EnName}
                             images={product.ImageList}
                             redirectBase="product"

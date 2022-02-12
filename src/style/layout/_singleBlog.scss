@@ -7,15 +7,10 @@
         h1 {
             margin-bottom: 1rem;
         }
-
-        & > div {
-            display: flex;
-            align-items: center;
-
-            & > p {
-                margin-left: 1rem;
-                color: $darkGrey;
-            }
+        
+        p {
+            margin-left: 1rem;
+            color: $darkGrey;
         }
     }
 
