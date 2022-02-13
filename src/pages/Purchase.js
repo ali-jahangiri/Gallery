@@ -23,7 +23,7 @@ const Purchase = () => {
                         <LayoutItem
                             redirectBase="products"
                             key={index}
-                            images={category.ImageList}
+                            CoverImage={category.ImageList[0]}
                             {...category} 
                             title={category.CategoryName} />)
                 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import LayoutItem from "../components/LayoutItem";
+import useKeyDistributor from "../hooks/useKeyDistributor";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
@@ -8,6 +9,7 @@ const Events = () => {
 
     const [eventData, setEventData] = useState([]);
     const fetcher = useRequest();
+    const distributer = useKeyDistributor();
 
     useEffect(function getEventsHandler () {
         fetcher(reqUrl.getEvents)
@@ -24,7 +26,7 @@ const Events = () => {
                          <LayoutItem
                             redirectBase="events"
                             key={index} 
-                            title={singleEvent.EnTitle} 
+                            title={distributer(singleEvent , "EnTitle")} 
                             createTime={singleEvent.CreateDate}
                             {...singleEvent}
                         />)

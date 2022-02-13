@@ -6,6 +6,7 @@ import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 import useAppContext from "../hooks/useAppContext";
 import ProductSliderController from "../components/ProductSliderController";
+import useKeyDistributor from "../hooks/useKeyDistributor";
 
 
 const Product = ({ match : { params } }) => {
@@ -13,7 +14,9 @@ const Product = ({ match : { params } }) => {
     const fetcher = useRequest();
     const { getContext : { lang } } = useAppContext();
     const sliderRef = useRef();
-    const [reRenderForcer, setReRenderForcer] = useState(0)
+    const [_, setReRenderForcer] = useState(0);
+    
+    const distributer = useKeyDistributor();
     
     const sliderConfig = {
         dots: false,
@@ -57,9 +60,9 @@ const Product = ({ match : { params } }) => {
                             </Slider>
                         </div>
                         <div className="product__details">
-                            <p className="product__details__title">{product.EnName}</p>
-                            <span className="product__details__shortDescription">{product.EnShortDescription}</span>
-                            <p className="product__details__description">{Parser(product.EnDescription || "")}</p>
+                            <p className="product__details__title">{distributer(product , "EnName")}</p>
+                            <span className="product__details__shortDescription">{distributer(product , "EnShortDescription")}</span>
+                            <p className="product__details__description">{Parser(distributer(product , "EnDescription") || "")}</p>
                             <div className="product__price">
                                 <p>{isFa ? "قیمت" : "Price"}</p>
                                 <span>{product.Price} USD</span>

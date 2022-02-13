@@ -1,6 +1,6 @@
 import useAppContext from "../hooks/useAppContext";
 
-const HomePostBlock = ({ EnTitle , EnDescription , Keyword }) => {
+const HomePostBlock = ({ title , EnDescription , Keyword }) => {
 
     const { getContext : { lang } } = useAppContext()
 
@@ -9,7 +9,7 @@ const HomePostBlock = ({ EnTitle , EnDescription , Keyword }) => {
         <div className={`homePostBlock ${lang === "fa" ? "homePostBlock--fa" : ""}`}>
             <div className="homePostBlock__title">
                 <div>
-                    <p>{EnTitle}<span /></p>
+                    <p>{title}<span /></p>
                 </div>
             </div>
             <div>

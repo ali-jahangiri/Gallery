@@ -3,10 +3,12 @@ import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 import Layout from "../components/Layout";
 import LayoutItem from "../components/LayoutItem";
+import useKeyDistributor from "../hooks/useKeyDistributor";
 
 const Blog = () => {
     const [blogItem, setBlogItem] = useState([]);
     const fetcher = useRequest();
+    const distributer = useKeyDistributor();
     
 
     useEffect(function fetchInitialBlogItemHandler() {
@@ -23,7 +25,7 @@ const Blog = () => {
                             redirectBase="publication"
                             createTime={item.CreateDate}
                             images={item.CoverImage}
-                            title={item.EnTitle}
+                            title={distributer(item , "EnTitle")}
                             {...item}
                             key={index}
                         />

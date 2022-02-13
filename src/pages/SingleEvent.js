@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 import Spinner from "../components/Spinner";
+import useKeyDistributor from "../hooks/useKeyDistributor";
 
 const SingleEvent = ({ match : { params } , history }) => {
 
@@ -10,6 +11,8 @@ const SingleEvent = ({ match : { params } , history }) => {
     const [loading, setLoading] = useState(true);
 
     const fetcher = useRequest();
+
+    const distributor = useKeyDistributor();
 
     
     useEffect(function getEventDataHandler() {
@@ -30,10 +33,10 @@ const SingleEvent = ({ match : { params } , history }) => {
             {
                 loading ? <Spinner /> : <div className="container">
                     <div className="singleEvent__title">
-                        <h1>{eventData.EnTitle}</h1>
+                        <h1>{distributor(eventData , "EnTitle")}</h1>
                     </div>
                     <div className="singleEvent__desc">
-                        <p>{parse(eventData.EnDescription)}</p>
+                        <p>{parse(distributor(eventData , "EnDescription"))}</p>
                     </div>
                 </div>
             }

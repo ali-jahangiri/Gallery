@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import HomeLoadingScreen from "../components/HomeLoadingScreen";
 import HomePostBlock from "../components/HomePostBlock";
 import useAppContext from "../hooks/useAppContext";
+import useKeyDistributor from "../hooks/useKeyDistributor";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
@@ -17,6 +18,8 @@ const Home = () => {
     const [homeData, setHomeData] = useState({ post : [] , slider : [{ Id : "" , Title : "" , ImageList : [] , ShortDescription : "" }] });
 
     const fetcher = useRequest();
+
+    const distributer = useKeyDistributor();
 
     const { getContext : { lang } } = useAppContext();
 
@@ -74,11 +77,11 @@ const Home = () => {
                     </div>
                     <div className={`home__otherGoddamnContainerForNoPurpose ${lang === "fa" ? "home__otherGoddamnContainerForNoPurpose--fa" : ""}`}>
                         <div className="home__otherGoddamnContainerForNoPurpose__intro">
-                            <p>{lang === "fa" ? "مقالات های برگزیده" : "Suggested Post"}</p>
+                            <p>{lang === "fa" ? "مقالات برگزیده" : "Suggested Post"}</p>
                         </div>
                         <div style={{ justifyContent : lang === "fa" ? "flex-end" : "flex-start" }} className="home__otherGoddamnContainerForNoPurpose__itemContainer">
                             {
-                                homeData.post.slice(0 , 2).map((item , index) => <HomePostBlock {...item} key={index} />)
+                                homeData.post.slice(0 , 2).map((item , index) => <HomePostBlock title={distributer(item , "EnTitle")} {...item} key={index} />)
                             }
                         </div>
                     </div>

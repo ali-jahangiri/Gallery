@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import LayoutItem from "../components/LayoutItem";
 import ProductCover from "../components/ProductCover";
+import useKeyDistributor from "../hooks/useKeyDistributor";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 
@@ -15,6 +16,7 @@ const test = [
 const ProductsDirectory = ({ match : { params } }) => {
     const [allProduct, setAllProduct] = useState([]);
     const fetcher = useRequest();
+    const distributer = useKeyDistributor();
 
     useEffect(function getAllProductsHandler() {
         fetcher(`${reqUrl.getAllProducts}${params.categoryId}`)
@@ -30,7 +32,7 @@ const ProductsDirectory = ({ match : { params } }) => {
                         <LayoutItem 
                             key={i}
                             renderCoverImage={(redirectHandler) => <ProductCover cover={product.CoverImage} onClick={redirectHandler} images={test.slice(0 , 2)} />}
-                            title={product.EnName}
+                            title={distributer(product , "EnName")}
                             images={product.ImageList}
                             redirectBase="product"
                             {...product}
