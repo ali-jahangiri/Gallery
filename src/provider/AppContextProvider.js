@@ -1,12 +1,9 @@
 import { createContext, useState } from "react";
 
-export const AppContextInstance = createContext()
+export const AppContextInstance = createContext();
 
-const defaultContext = {
-    lang : "fa",
-}
 
-const AppContextProvider = ({ children , context = defaultContext }) => {
+const AppContextProvider = ({ children , context = { lang : '' } }) => {
     const [contextState, setContextState] = useState(context);
 
     const changeContextHandler = (key , value) => {

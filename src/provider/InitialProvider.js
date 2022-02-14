@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import useAppContext from "../hooks/useAppContext";
 
 const InitialProvider = ({ children }) => {
-    const { setContext } = useAppContext();
+    const { setContext , getContext } = useAppContext();
     
     useEffect(function setupPersistedUserLang() {
         const userLang = localStorage.getItem("userLang");
@@ -10,6 +10,7 @@ const InitialProvider = ({ children }) => {
     } , []);
 
 
+    if(!getContext.lang) return null;
     return children;
 }
 
