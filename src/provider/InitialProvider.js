@@ -7,6 +7,7 @@ const InitialProvider = ({ children }) => {
     useEffect(function setupPersistedUserLang() {
         const userLang = localStorage.getItem("userLang");
         if(userLang) setContext("lang" , userLang);
+        else setContext("lang" , "en")
     } , []);
 
 

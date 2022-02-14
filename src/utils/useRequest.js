@@ -9,7 +9,6 @@ const useRequest = () => {
     const isInInitialTime = useRef(true);
 
     useEffect(function afterInitialSetupPageRefreshHandler(){
-        console.log('comeInside' , isInInitialTime);
         if(isInInitialTime.current) {
            isInInitialTime.current = false; 
         }else {
