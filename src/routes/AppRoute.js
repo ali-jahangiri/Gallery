@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom"
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "../components/Header";
 
 import { Home , Blog , ContactUs , GalleryList, NotFound, About, SingleBlog, Events, SingleEvent, Purchase, ProductsDirectory, Product, Exhibitions, SingleExhibition, Archive, SingleArchive } from "../pages"

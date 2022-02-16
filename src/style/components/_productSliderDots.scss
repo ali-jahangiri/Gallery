@@ -1,0 +1,22 @@
+.productSliderDots {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+    
+    & > div {
+        display: block;
+        width: .7rem;
+        height: .7rem;
+        background-color: lightgrey;
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 0 .5rem;
+        transition: .3s;
+    }
+
+    @media (max-width : $md) {
+        display: none;
+    }
+}

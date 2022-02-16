@@ -1,6 +1,7 @@
 .menuItem {
     text-align: right;
     position: relative;
+    margin: 1rem 0;
     
     button {
         background-color: transparent;
@@ -28,11 +29,25 @@
         }
     }
 
-
-    @media (max-width : 576px) {
-        text-align: center;
+    &--active {
         p {
-            font-size: 1.7rem;
+            text-decoration: underline;
+            font-weight: 900;
+        }
+    }
+    
+    @media (max-width : $lg) {
+        p {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width : $sm) {
+        text-align: right;
+        padding-left: 1rem;
+
+        p {
+            font-size: 1.3rem;
         }
     }
 

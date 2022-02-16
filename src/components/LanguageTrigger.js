@@ -5,8 +5,11 @@ const LanguageTrigger = ({ isMenuOpen }) => {
 
     const changeLanguageHandler = () => {
         const newLang = getContext.lang === "fa" ? "en" : 'fa';
-        setContext('lang' , newLang);
+        console.log(newLang);
         localStorage.setItem("userLang" , newLang);
+        if(getContext.lang !== localStorage.getItem("userLang")) {
+            window.location.reload()
+        }
     }
 
     return (

@@ -6,6 +6,7 @@
     user-select: none;
     background-color: white;
     padding: 2rem;
+    display: none;
 
     div {
 
@@ -26,6 +27,33 @@
             svg {
                 fill: grey;
             }
+        }
+    }
+
+    @media (max-width : $md) {
+        position: relative;
+        display: flex;
+        width: 60%;
+        justify-content: space-between;
+        padding: 0;
+        background-color: transparent;
+        margin: 1rem auto;
+
+        & > div {
+            margin: 0 !important;
+
+            &:first-child {
+                transform: rotate(-90deg);
+            }
+
+            &:last-child {
+                transform : rotate(-90deg)
+            }
+        }
+
+
+        @media (max-width : $sm) {
+            width: 100%;
         }
     }
 }

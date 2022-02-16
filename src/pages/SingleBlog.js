@@ -4,13 +4,17 @@ import Spinner from "../components/Spinner";
 import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 import useKeyDistributor from "../hooks/useKeyDistributor";
+import useAppContext from "../hooks/useAppContext";
+
 
 const SingleBlog = ({ match : { params } , history }) => {
     const [loading, setLoading] = useState(true);
     const [blogData, setBlogData] = useState({});
     const fetcher = useRequest();
     const distributor = useKeyDistributor();
+    const { getContext } = useAppContext();
 
+    const isFa = getContext.lang === 'fa';
 
     useEffect(function fetchSpecificBlogItemHandler() {
         if(params.id && !isNaN(params.id)) {
@@ -25,7 +29,7 @@ const SingleBlog = ({ match : { params } , history }) => {
 
     return (
         <div className={`singleBlog ${!loading ? "singleBlog--loaded" : ""}`}>
-            <div className="container">
+            <div className={`container ${isFa ? "faDir" : ""}`}>
                 {
                     loading ? <Spinner /> : <React.Fragment>
                         <div className="singleBlog__intro">

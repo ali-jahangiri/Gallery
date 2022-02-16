@@ -5,18 +5,6 @@ import { selfClearTimeout } from "../utils";
 import MenuItem from "./MenuItem";
 import BrandIcon from "../static/logo.jpg"
 
-
-
-const pathClone = [
-    "about",
-    "exhibitions",
-    "purchase",
-    "archive",
-    "publication",
-    "events",
-    "contact",
-]
-
 const FullScreenMenu = ({ isInClose , setMenuOpen , setIsInClosing }) => {
     const history = useHistory();
     const { getContext } = useAppContext()
@@ -45,7 +33,16 @@ const FullScreenMenu = ({ isInClose , setMenuOpen , setIsInClosing }) => {
                 </div>
                 <div className="menu__itemDirectory">
                     {
-                        client.headerMenuList[getContext.lang].itemsList.map((el , i) => <MenuItem isInEn={isInEn} key={i} label={el} redirectHandler={redirectHandler} path={pathClone[i]} />)
+                        client.headerMenuList[getContext.lang]
+                            .itemsList
+                            .map((el , i) => <MenuItem
+                                isActive={history.location.pathname.includes(el.path) || el?.nestedPath?.some(nestedPath => history.location.pathname.includes(nestedPath))}
+                                isInEn={isInEn} 
+                                key={i} 
+                                label={el.title} 
+                                redirectHandler={redirectHandler} 
+                                path={el.path}
+                            />)
                     }
                 </div>
             </div>

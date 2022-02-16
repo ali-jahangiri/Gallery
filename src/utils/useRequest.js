@@ -8,13 +8,13 @@ const useRequest = () => {
     const isFaMode = lang === "fa";
     const isInInitialTime = useRef(true);
 
-    useEffect(function afterInitialSetupPageRefreshHandler(){
-        if(isInInitialTime.current) {
-           isInInitialTime.current = false; 
-        }else {
-            window.location.reload();
-        }
-    } , [isFaMode]);
+    // useEffect(function afterInitialSetupPageRefreshHandler(){
+    //     if(isInInitialTime.current) {
+    //        isInInitialTime.current = false; 
+    //     }else {
+    //         window.location.reload();
+    //     }
+    // } , [isFaMode]);
     
 
     return (path = "" , option = {}) => {

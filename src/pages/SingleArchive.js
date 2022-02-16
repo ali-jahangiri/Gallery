@@ -7,11 +7,13 @@ import reqUrl from "../utils/reqUrl";
 import useRequest from "../utils/useRequest";
 import ImageLightBox from "../components/ImageLightBox";
 import useKeyDistributor from "../hooks/useKeyDistributor";
+import useAppContext from "../hooks/useAppContext";
 
 const SingleArchive = ({ match : { params } }) => {
     const [archive, setArchive] = useState(null);
     const fetcher = useRequest();
     const [selectedImage, setSelectedImage] = useState("");
+    const { getContext } = useAppContext();
 
     const distributer = useKeyDistributor();
     
@@ -24,10 +26,13 @@ const SingleArchive = ({ match : { params } }) => {
 
     const openLightBox = imagePath => setSelectedImage(imagePath);
 
+
+    const isFa = getContext.lang === "fa";
+
     return (
         <div className={`singleArchive ${archive ? "singleArchive--loaded" : ""}`}>
             {
-                !archive ? <Spinner /> : <div className="container">
+                !archive ? <Spinner /> : <div className={`container ${isFa ? "faDir" : ""}`}>
                         <div className="singleArchive__details">
                             <h1>{distributer(archive , "EnTitle")}</h1>
                             <p>{Parser((distributer(archive , "EnShortDescription")))}</p>

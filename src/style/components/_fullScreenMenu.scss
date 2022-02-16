@@ -68,7 +68,7 @@
         flex-direction: column;
         align-items: flex-start;
         color: $beige;
-
+        margin-bottom: auto;
 
         p {
             margin: 0 !important;
@@ -84,8 +84,8 @@
         padding: 0 6rem;
         width: 100%;
         display: flex;
-        height: 50%;
-        align-items: baseline;
+        height: 60%;
+        align-items: center;
         justify-content: space-around;
         margin-top: auto;
         margin-bottom: auto;
@@ -111,8 +111,9 @@
             &__itemDirectory {
                 flex-wrap: wrap;
                 .menuItem {
-                    text-align: left;
+                    text-align: left !important;
                     p {
+                        text-align: left;
                         &::after {
                             left: 0;
                         }
@@ -127,7 +128,7 @@
     }
 
 
-    @media (max-width : 992px) {
+    @media (max-width : $lg) {
         .menu {
             &__container {
                 padding: 0;

@@ -2,10 +2,8 @@
     position: relative;
     overflow: hidden;
     transition: .3s;
-    width: 10rem;
-    transition: .3s;
-    flex: .20 0 1rem;
-
+    max-width: 100px;
+    
     p {
         cursor: pointer;
         display: inline;
@@ -13,7 +11,7 @@
     }
 
     &--hide {
-        flex: 0 !important;
+        max-width: 0;
         opacity: 0;
     }
 }

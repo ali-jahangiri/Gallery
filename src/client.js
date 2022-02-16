@@ -4,25 +4,69 @@ const client = {
         en : {
             title :"Menu",
             itemsList : [
-                "About",
-                "Exhibitions",
-                "Purchase",
-                "Archive",
-                "Notes and Publication",
-                "Events",
-                "Contact",
-            ]
+                {
+                    title : "About",
+                    path : "about"
+                },
+                {
+                    title : "Exhibitions",
+                    path : "exhibitions"
+                },
+                {
+                    title : "Purchase",
+                    path : "purchase",
+                    nestedPath : ['products' , 'product'],
+                },
+                {
+                    title : "Archive",
+                    path : "archive"
+                },
+                {
+                    title : "Notes and Publication",
+                    path : "publication"
+                },
+                {
+                    title : "Events",
+                    path : "events"
+                },
+                {
+                    title : "Contact",
+                    path : "contact"
+                },
+            ].map(el => ({...el , title : el.title.toUpperCase()}))
         },
         fa : {
             title : "منو",
             itemsList : [
-                "درباره",
-                "نمایشگاه",
-                "خرید",
-                "آرشیو",
-                "نوشته ها و انتشارات",
-                "رخداد ها",
-                "تماس",
+                {
+                    title : "درباره",
+                    path : "about"
+                },
+                {
+                    title : "نمایشگاه",
+                    path : "exhibitions"
+                },
+                {
+                    title : "خرید",
+                    path : "purchase",
+                    nestedPath : ['products' , 'product'],
+                },
+                {
+                    title : "آرشیو",
+                    path : "archive"
+                },
+                {
+                    title : "نوشته ها و انتشارات",
+                    path : "publication"
+                },
+                {
+                    title : "رخداد ها",
+                    path : "events"
+                },
+                {
+                    title : "تماس",
+                    path : "contact"
+                },
             ]
         }
     },

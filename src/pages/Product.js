@@ -7,6 +7,8 @@ import useRequest from "../utils/useRequest";
 import useAppContext from "../hooks/useAppContext";
 import ProductSliderController from "../components/ProductSliderController";
 import useKeyDistributor from "../hooks/useKeyDistributor";
+import ImageLightBox from "../components/ImageLightBox";
+import ProductSliderDots from "../components/ProductSliderDots";
 
 
 const Product = ({ match : { params } }) => {
@@ -15,6 +17,8 @@ const Product = ({ match : { params } }) => {
     const { getContext : { lang } } = useAppContext();
     const sliderRef = useRef();
     const [_, setReRenderForcer] = useState(0);
+    const [showImageLightbox, setShowImageLightbox] = useState(false);
+    const [activeSlide, setActiveSlide] = useState(0)
     
     const distributer = useKeyDistributor();
     
@@ -27,6 +31,8 @@ const Product = ({ match : { params } }) => {
         fade : true,
         arrows : false,
         autoplay : true,
+        afterChange : setActiveSlide,
+
     }
 
 
@@ -41,6 +47,12 @@ const Product = ({ match : { params } }) => {
 
     const isFa = lang === "fa";
     
+
+    const openLightboxHandler = imgSrc => {
+        setShowImageLightbox(imgSrc);
+    }
+
+
     return (
         <div className="product">
             {
@@ -48,16 +60,19 @@ const Product = ({ match : { params } }) => {
                     <div className="product__innerContainer">
                         <div className="product__images">
                             <ProductSliderController sliderRef={sliderRef.current} />
-                            <Slider ref={sliderRef} {...sliderConfig}>
-                                {
-                                    product.ImageList.map((slide , index) => (
-                                        <div key={index}>
-                                            <div style={{ background : `url(${slide})` }} className="product__images__slide">
+                            <div className="product__sliderContainer">
+                                <Slider ref={sliderRef} {...sliderConfig}>
+                                    {
+                                        product.ImageList.map((slide , index) => (
+                                            <div key={index}>
+                                                <div onClick={() => openLightboxHandler(slide)} style={{ background : `url(${slide})` }} className="product__images__slide">
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))
-                                }
-                            </Slider>
+                                        ))
+                                    }
+                                </Slider>
+                                <ProductSliderDots activeDot={activeSlide} slideCount={product.ImageList.length} sliderRef={sliderRef} />
+                            </div>
                         </div>
                         <div className="product__details">
                             <p className="product__details__title">{distributer(product , "EnName")}</p>
@@ -70,6 +85,9 @@ const Product = ({ match : { params } }) => {
                         </div>
                     </div>
                 </div>
+            }
+            {
+                showImageLightbox && <ImageLightBox onClose={setShowImageLightbox} src={showImageLightbox} />
             }
         </div>
     )
